@@ -22,7 +22,7 @@ const Register = () => {
         backgroundImage: `url(${background})`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "100% 100%",
+        backgroundSize: "cover",
         minHeight: "100vh",
       }}
     >
@@ -32,7 +32,7 @@ const Register = () => {
         direction="row-reverse"
         rowSpacing={{ sm: 3 }}
         sx={{
-          height: "100%",
+          height: "80vh",
           p: 2,
           pb: 10,
         }}
@@ -46,8 +46,10 @@ const Register = () => {
           md={6}
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.9)",
+            height: "850px",
             padding: "2rem",
             boxShadow: "2px 2px 50px black",
+            maxWidth: "500px",
           }}
         >
           <AuthImage image={image} />

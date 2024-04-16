@@ -56,14 +56,22 @@ const LoginForm = ({
               error={touched.password && Boolean(errors.password)}
               helperText={touched.password && errors.password}
             />
-            <Box sx={{ position: "absolute", top: 15, right: 15 }}>
+            <Box
+              color="primary.main"
+              sx={{ position: "absolute", top: 15, right: 15 }}
+            >
               {showPassword ? (
                 <VisibilityOffIcon
                   size={32}
                   onClick={handlePasswordVisibility}
+                  style={{ cursor: "pointer" }}
                 />
               ) : (
-                <VisibilityIcon size={32} onClick={handlePasswordVisibility} />
+                <VisibilityIcon
+                  size={32}
+                  onClick={handlePasswordVisibility}
+                  style={{ cursor: "pointer" }}
+                />
               )}
             </Box>
           </Box>

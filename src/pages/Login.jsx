@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import image from "../assets/security.png";
+import image from "../assets/securityOpen.png";
 import { Link } from "react-router-dom";
 import AuthHeader from "../components/AuthHeader";
 import AuthImage from "../components/AuthImage";
@@ -24,6 +24,7 @@ const Login = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        minHeight: "100vh",
       }}
     >
       <Grid
@@ -32,7 +33,7 @@ const Login = () => {
         direction="row-reverse"
         rowSpacing={{ sm: 3 }}
         sx={{
-          height: "100vh",
+          height: "80vh",
           p: 2,
           pb: 10,
         }}
@@ -45,10 +46,11 @@ const Login = () => {
           sm={10}
           md={6}
           style={{
-            minHeight: "757px",
+            height: "850px",
             backgroundColor: "rgba(255, 255, 255, 0.9)",
             padding: "2rem",
             boxShadow: "2px 2px 50px black",
+            maxWidth: "500px",
           }}
         >
           <AuthImage image={image} />

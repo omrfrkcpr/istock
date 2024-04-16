@@ -131,14 +131,22 @@ const RegisterForm = ({
               error={touched.password && Boolean(errors.password)}
               helperText={touched.password && errors.password}
             />
-            <Box sx={{ position: "absolute", top: 15, right: 15 }}>
+            <Box
+              color="primary.main"
+              sx={{ position: "absolute", top: 15, right: 15 }}
+            >
               {showPassword ? (
                 <VisibilityOffIcon
                   size={32}
                   onClick={handlePasswordVisibility}
+                  style={{ cursor: "pointer" }}
                 />
               ) : (
-                <VisibilityIcon size={32} onClick={handlePasswordVisibility} />
+                <VisibilityIcon
+                  size={32}
+                  onClick={handlePasswordVisibility}
+                  style={{ cursor: "pointer" }}
+                />
               )}
             </Box>
           </Box>
@@ -150,22 +158,27 @@ const RegisterForm = ({
               inputProps={{ "auto-complete": "off" }}
               type={`${showConfirmPassword ? "text" : "password"}`}
               label="Confirm Password"
-              value={values.confirmPassword}
+              value={isSubmitting ? "" : values.confirmPassword}
               onChange={handleChange}
               onBlur={handleBlur}
               error={touched.confirmPassword && Boolean(errors.confirmPassword)}
               helperText={touched.confirmPassword && errors.confirmPassword}
             />
-            <Box sx={{ position: "absolute", top: 15, right: 15 }}>
+            <Box
+              color="primary.main"
+              sx={{ position: "absolute", top: 15, right: 15 }}
+            >
               {showConfirmPassword ? (
                 <VisibilityOffIcon
                   size={32}
                   onClick={handleConfirmPasswordVisibility}
+                  style={{ cursor: "pointer" }}
                 />
               ) : (
                 <VisibilityIcon
                   size={32}
                   onClick={handleConfirmPasswordVisibility}
+                  style={{ cursor: "pointer" }}
                 />
               )}
             </Box>
@@ -173,7 +186,7 @@ const RegisterForm = ({
           <Button
             type="submit"
             variant="contained"
-            sx={{ backgroundColor: "orange", color: "white" }}
+            color="info"
             size="large"
             disabled={isSubmitting}
           >
