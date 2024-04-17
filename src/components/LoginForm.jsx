@@ -1,9 +1,11 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import { Button, CircularProgress } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { Form } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
@@ -12,15 +14,9 @@ export const SignupSchema = Yup.object().shape({
   password: Yup.string().required("Required!"),
 });
 
-const LoginForm = ({
-  values,
-  handleChange,
-  errors,
-  touched,
-  handleBlur,
-  isSubmitting,
-}) => {
+const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const { loading } = useSelector((state) => state.auth);
 
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -75,16 +71,25 @@ const LoginForm = ({
               )}
             </Box>
           </Box>
-
-          <Button
-            type="submit"
-            variant="contained"
-            color="success"
-            size="large"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Loading..." : "Sign In"}
-          </Button>
+          {!loading ? (
+            <Button
+              variant="contained"
+              type="submit"
+              color="success"
+              size="large"
+            >
+              Sign In
+            </Button>
+          ) : (
+            <Button
+              variant="contained"
+              disabled={loading}
+              color="error"
+              size="large"
+            >
+              <CircularProgress />
+            </Button>
+          )}
         </Box>
       </Form>
     </div>
