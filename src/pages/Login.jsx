@@ -1,7 +1,6 @@
 // Login.jsx
 import { Box } from "@mui/material";
 import { Formik } from "formik";
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import image from "../assets/securityOpen.png";
@@ -17,45 +16,45 @@ const Login = () => {
   const { login } = useAuthCall();
 
   return (
-    <Container
-      maxWidth="lg"
-      style={{
+    <Box
+      sx={{
         backgroundImage: `url(${background})`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        backgroundAttachment: "fixed",
         minHeight: "100vh",
+        height: "100%",
       }}
     >
       <Grid
-        container
         justifyContent="center"
         direction="row-reverse"
-        rowSpacing={{ sm: 3 }}
         sx={{
-          height: "80vh",
+          height: "100vh",
+          maxHeight: "850px",
           p: 2,
-          pb: 10,
         }}
       >
         <AuthHeader />
 
         <Grid
           item
-          xs={12}
+          xs={10}
           sm={10}
-          md={6}
+          md={12}
           style={{
-            height: "850px",
+            height: "fit-content",
             backgroundColor: "rgba(255, 255, 255, 0.9)",
-            padding: "2rem",
+            padding: "1rem",
             boxShadow: "2px 2px 50px black",
             maxWidth: "500px",
+            margin: "auto",
           }}
         >
           <AuthImage image={image} />
 
-          <Typography variant="h4" align="center" mb={4} color="secondary.main">
+          <Typography variant="h5" align="center" color="secondary.main">
             SIGN IN
           </Typography>
 
@@ -79,7 +78,7 @@ const Login = () => {
           </Box>
         </Grid>
       </Grid>
-    </Container>
+    </Box>
   );
 };
 

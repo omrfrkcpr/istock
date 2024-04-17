@@ -6,6 +6,13 @@ import * as Yup from "yup";
 import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { styled } from "@mui/material/styles";
+
+const CustomTextField = styled(TextField)({
+  "& .MuiInputBase-input": {
+    height: "1rem",
+  },
+});
 
 //! Yup ile istediğimiz alanlara istediğimiz validasyon koşullarını
 //  oluşturuyoruz. Sonra oluşturduğumuz bu şemayı formike tanımlayarak
@@ -62,9 +69,16 @@ const RegisterForm = ({
 
   return (
     <div>
-      <Form>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          <TextField
+      <Form autoComplete="off">
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            width: "100%",
+          }}
+        >
+          <CustomTextField
             id="username"
             name="username" //formik name attributedından eşleştirme yapıyor.
             label="Username"
@@ -78,7 +92,7 @@ const RegisterForm = ({
             error={touched.username && Boolean(errors.username)} //validationda verdiğimiz kalıba uymazsa rengi errora çevirmesi için error attribute ı benden false/true degeri bekliyor ondan dolayı daha sağlıklı olması için boolean deger döndürüyoruz.
             // touched da kullanıcının inputa tıklayıp tıklamadığını yakalıyor
           />
-          <TextField
+          <CustomTextField
             label="First Name"
             name="firstName"
             id="firstName"
@@ -93,7 +107,7 @@ const RegisterForm = ({
             helperText={touched.firstName && errors.firstName}
             error={touched.firstName && Boolean(errors.firstName)}
           />
-          <TextField
+          <CustomTextField
             label="Last Name"
             name="lastName"
             id="lastName"
@@ -105,7 +119,7 @@ const RegisterForm = ({
             helperText={touched.lastName && errors.lastName}
             error={touched.lastName && Boolean(errors.lastName)}
           />
-          <TextField
+          <CustomTextField
             label="Email"
             name="email"
             id="email"
@@ -118,7 +132,7 @@ const RegisterForm = ({
             error={touched.email && Boolean(errors.email)}
           />
           <Box sx={{ position: "relative" }}>
-            <TextField
+            <CustomTextField
               id="password"
               sx={{ width: "100%" }}
               name="password"
@@ -151,7 +165,7 @@ const RegisterForm = ({
             </Box>
           </Box>
           <Box sx={{ position: "relative" }}>
-            <TextField
+            <CustomTextField
               id="confirmPassword"
               sx={{ width: "100%" }}
               name="confirmPassword"

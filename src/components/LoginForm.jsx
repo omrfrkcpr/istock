@@ -23,7 +23,7 @@ const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
   };
   return (
     <div>
-      <Form>
+      <Form autoComplete="off">
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <TextField
             id="username"
