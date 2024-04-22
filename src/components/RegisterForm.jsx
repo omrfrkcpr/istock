@@ -1,48 +1,28 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import { Form } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { styled } from "@mui/material/styles";
+import FormTextField from "../components/ui/TextFields/FormTextField";
 
-const CustomTextField = styled(TextField)({
-  "& .MuiInputBase-input": {
-    height: "1rem",
-  },
-});
-
-//! Yup ile istediğimiz alanlara istediğimiz validasyon koşullarını
-//  oluşturuyoruz. Sonra oluşturduğumuz bu şemayı formike tanımlayarak
-//  kullanıyoruz. Böylelikle formik hem formumuzu yönetiyor hem de verdiğimiz
-//  validationSchema yı uyguluyor. Dikkat edilmesi gereken husus; formikte
-//  tanımladığımız initialValues daki keylerle, Yupta tanımladığımız keylerin
-//  aynı olması. Eğer bir harf bile farklı olsa o alanla ilgili yazdığınız
-//  validation çalışmaz.
 export const SignupSchema = Yup.object().shape({
   username: Yup.string().min(3).max(15).required("Required!"),
-  firstName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  lastName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
+  firstName: Yup.string().min(2).max(50).required("Required"),
+  lastName: Yup.string().min(2).max(50).required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
-    .min(8, "Er muss mindestens 8 Zeichen lang sein!")
-    .max(50, "Er darf maximal 50 Zeichen lang sein!")
-    .matches(/\d+/, "Muss mindestens eine Ziffer enthalten!")
-    .matches(/[a-z]/, "Muss mindestens einen Kleinbuchstaben enthalten!")
-    .matches(/[A-Z]/, "Muss mindestens einen Großbuchstaben enthalten!")
+    .min(8, "Password must be at least 8 characters long")
+    .max(50, "Password must be at most 50 characters long")
+    .matches(/\d+/, "Password must contain at least one number")
+    .matches(/[a-z]/, "Password must contain at least one lowercase letter")
+    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
     .matches(
       /[@$?!%&*]+/,
-      "Muss mindestens ein Sonderzeichen (@$!%*?&) enthalten!"
+      "Password must contain at least one of the following characters: (@$?!%&*)"
     )
-    .required(),
+    .required("Password is required"),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Confirm Password is required"),
@@ -59,6 +39,23 @@ const RegisterForm = ({
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const registerFormFields = [
+    { name: "username", label: "Username", type: "text" },
+    { name: "firstName", label: "First Name", type: "text" },
+    { name: "lastName", label: "Last Name", type: "text" },
+    { name: "email", label: "Email", type: "email" },
+    {
+      name: "password",
+      label: "Password",
+      type: `${showPassword ? "text" : "password"}`,
+    },
+    {
+      name: "confirmPassword",
+      label: "Confirm Password",
+      type: `${showConfirmPassword ? "text" : "password"}`,
+    },
+  ];
+
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -74,129 +71,65 @@ const RegisterForm = ({
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: 2,
-            width: "100%",
+            gap: 1,
           }}
         >
-          <CustomTextField
-            id="username"
-            name="username" //formik name attributedından eşleştirme yapıyor.
-            label="Username"
-            inputProps={{
-              autoComplete: "off", // Burada "autoComplete" kullanılmalıdır.
-            }}
-            value={values.username}
-            onChange={handleChange}
-            onBlur={handleBlur} // kullanıcının input alanından ayrıldığını yaklayan event
-            helperText={touched.username && errors.username} //validationda verdiğimiz kalıba uymazsa ilgili mesajları göstermesi için errors dan gelen mesajı yakalıyoruz.
-            error={touched.username && Boolean(errors.username)} //validationda verdiğimiz kalıba uymazsa rengi errora çevirmesi için error attribute ı benden false/true degeri bekliyor ondan dolayı daha sağlıklı olması için boolean deger döndürüyoruz.
-            // touched da kullanıcının inputa tıklayıp tıklamadığını yakalıyor
-          />
-          <CustomTextField
-            label="First Name"
-            name="firstName"
-            id="firstName"
-            inputProps={{
-              autoComplete: "off", // Burada "autoComplete" kullanılmalıdır.
-            }}
-            type="text"
-            variant="outlined"
-            value={values.firstName}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            helperText={touched.firstName && errors.firstName}
-            error={touched.firstName && Boolean(errors.firstName)}
-          />
-          <CustomTextField
-            label="Last Name"
-            name="lastName"
-            id="lastName"
-            type="text"
-            variant="outlined"
-            value={values.lastName}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            helperText={touched.lastName && errors.lastName}
-            error={touched.lastName && Boolean(errors.lastName)}
-          />
-          <CustomTextField
-            label="Email"
-            name="email"
-            id="email"
-            type="email"
-            variant="outlined"
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            helperText={touched.email && errors.email}
-            error={touched.email && Boolean(errors.email)}
-          />
-          <Box sx={{ position: "relative" }}>
-            <CustomTextField
-              id="password"
-              sx={{ width: "100%" }}
-              name="password"
-              inputProps={{ "auto-complete": "off" }}
-              type={`${showPassword ? "text" : "password"}`}
-              label="Password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.password && Boolean(errors.password)}
-              helperText={touched.password && errors.password}
-            />
-            <Box
-              color="primary.main"
-              sx={{ position: "absolute", top: 15, right: 15 }}
-            >
-              {showPassword ? (
-                <VisibilityOffIcon
-                  size={32}
-                  onClick={handlePasswordVisibility}
-                  style={{ cursor: "pointer" }}
-                />
-              ) : (
-                <VisibilityIcon
-                  size={32}
-                  onClick={handlePasswordVisibility}
-                  style={{ cursor: "pointer" }}
-                />
+          {registerFormFields.map((field) => (
+            <Box sx={{ position: "relative" }}>
+              <FormTextField
+                id={field.name}
+                name={field.name}
+                label={field.label}
+                autoComplete="off"
+                type={field.type}
+                value={
+                  field.name === "confirmPassword" && isSubmitting
+                    ? ""
+                    : values[field.name]
+                }
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched[field.name] && Boolean(errors[field.name])}
+                helperText={touched[field.name] && errors[field.name]}
+              />
+              {(field.name === "password" ||
+                field.name === "confirmPassword") && (
+                <Box
+                  color="primary.main"
+                  sx={{ position: "absolute", top: 15, right: 15 }}
+                >
+                  {field.name === "password" ? (
+                    showPassword ? (
+                      <VisibilityOffIcon
+                        size={32}
+                        onClick={handlePasswordVisibility}
+                        style={{ cursor: "pointer" }}
+                      />
+                    ) : (
+                      <VisibilityIcon
+                        size={32}
+                        onClick={handlePasswordVisibility}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )
+                  ) : showConfirmPassword ? (
+                    <VisibilityOffIcon
+                      size={32}
+                      onClick={handleConfirmPasswordVisibility}
+                      style={{ cursor: "pointer" }}
+                    />
+                  ) : (
+                    <VisibilityIcon
+                      size={32}
+                      onClick={handleConfirmPasswordVisibility}
+                      style={{ cursor: "pointer" }}
+                    />
+                  )}
+                </Box>
               )}
             </Box>
-          </Box>
-          <Box sx={{ position: "relative" }}>
-            <CustomTextField
-              id="confirmPassword"
-              sx={{ width: "100%" }}
-              name="confirmPassword"
-              inputProps={{ "auto-complete": "off" }}
-              type={`${showConfirmPassword ? "text" : "password"}`}
-              label="Confirm Password"
-              value={isSubmitting ? "" : values.confirmPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.confirmPassword && Boolean(errors.confirmPassword)}
-              helperText={touched.confirmPassword && errors.confirmPassword}
-            />
-            <Box
-              color="primary.main"
-              sx={{ position: "absolute", top: 15, right: 15 }}
-            >
-              {showConfirmPassword ? (
-                <VisibilityOffIcon
-                  size={32}
-                  onClick={handleConfirmPasswordVisibility}
-                  style={{ cursor: "pointer" }}
-                />
-              ) : (
-                <VisibilityIcon
-                  size={32}
-                  onClick={handleConfirmPasswordVisibility}
-                  style={{ cursor: "pointer" }}
-                />
-              )}
-            </Box>
-          </Box>
+          ))}
+
           <Button
             type="submit"
             variant="contained"

@@ -1,32 +1,71 @@
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchFail, fetchStart, getSuccess } from "../features/stockSlice";
-
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import useAxios from "./useAxios";
+import { toastSuccessNotify } from "../helper/ToastNotify";
 
 const useStockCall = () => {
   const dispatch = useDispatch();
-  const { token } = useSelector((state) => state.auth);
+  const axiosWithToken = useAxios();
 
-  // base function for getting stock data based on url parameter
   const getStockData = async (url) => {
     dispatch(fetchStart());
     try {
-      const { data } = await axios(`${BASE_URL}${url}`, {
-        headers: {
-          Authorization: `Token ${token}`,
-          // Authorization: `Bearer ${accesstoken}` //* jwt için
-        },
-      });
-      console.log(data.data);
-      dispatch(getSuccess({ data: data.data, url: url }));
+      const { data } = await axiosWithToken(`${url}`);
+      console.log(data);
+
+      dispatch(getSuccess({ data: data.data, url }));
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
     }
   };
 
-  return { getStockData };
+  const deleteStockData = async (url, id) => {
+    if (confirm("Are you sure you want to delete?")) {
+      dispatch(fetchStart());
+      try {
+        await axiosWithToken.delete(`${url}/${id}`);
+        toastSuccessNotify("Firm successfully deleted");
+      } catch (error) {
+        console.log(error);
+        dispatch(fetchFail());
+      } finally {
+        getStockData(url);
+      }
+    }
+  };
+
+  const postStockData = async (url, info) => {
+    dispatch(fetchStart());
+    try {
+      await axiosWithToken.post(`${url}`, info);
+      getStockData(url); // only if we post it successfully
+      toastSuccessNotify("New Firm successfully created");
+    } catch (error) {
+      console.log(error);
+      dispatch(fetchFail());
+    }
+  };
+
+  const putStockData = async (url, info) => {
+    dispatch(fetchStart());
+    try {
+      await axiosWithToken.put(`${url}/${info._id}`, info);
+      toastSuccessNotify("Firm successfully updated");
+    } catch (error) {
+      console.log(error);
+      dispatch(fetchFail());
+    } finally {
+      getStockData(url);
+    }
+  };
+
+  return {
+    deleteStockData,
+    getStockData,
+    postStockData,
+    putStockData,
+  };
 };
 
 export default useStockCall;

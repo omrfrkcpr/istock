@@ -40,7 +40,7 @@ const Login = () => {
 
         <Grid
           item
-          xs={10}
+          xs={12}
           sm={10}
           md={12}
           style={{
@@ -50,6 +50,7 @@ const Login = () => {
             boxShadow: "2px 2px 50px black",
             maxWidth: "500px",
             margin: "auto",
+            textAlign: "center  ",
           }}
         >
           <AuthImage image={image} />

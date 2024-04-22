@@ -32,7 +32,7 @@ const Register = () => {
         direction="row-reverse"
         sx={{
           height: "100vh",
-          maxHeight: "850px",
+          maxHeight: "700px",
           p: 2,
           // pb: 10,
         }}
@@ -50,6 +50,7 @@ const Register = () => {
             padding: "1rem",
             boxShadow: "2px 2px 50px black",
             maxWidth: "500px",
+            margin: "auto",
             textAlign: "center  ",
           }}
         >
