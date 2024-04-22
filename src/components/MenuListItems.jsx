@@ -15,35 +15,30 @@ const links = [
     url: "/stock",
     icon: getIcon("ic_analytics"),
   },
-
   {
     title: "Purchases",
     url: "/stock/purchases",
     icon: getIcon("purchase"),
   },
-
-  {
-    title: "Brands",
-    url: "/stock/brands",
-    icon: getIcon("brand"),
-  },
-
-  {
-    title: "Products",
-    url: "/stock/products",
-    icon: getIcon("ic_cart"),
-  },
-
   {
     title: "Sales",
     url: "/stock/sales",
     icon: getIcon("sales"),
   },
-
   {
     title: "Firms",
     url: "/stock/firms",
     icon: getIcon("firms"),
+  },
+  {
+    title: "Brands",
+    url: "/stock/brands",
+    icon: getIcon("brand"),
+  },
+  {
+    title: "Products",
+    url: "/stock/products",
+    icon: getIcon("ic_cart"),
   },
 ];
 
@@ -86,19 +81,6 @@ const MenuListItems = () => {
               onClick={() => navigate(url)}
               sx={pathname === url ? selectedStyle : iconStyle}
             >
-              {/* <ListItemIcon>
-                <Box
-                  sx={{
-                    backgroundImage: `url(${icon})`,
-                    width: 24,
-                    height: 24,
-                    bgcolor: "red",
-                    backgroundPosition: "center",
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                />
-              </ListItemIcon> */}
               <Box
                 sx={{
                   width: 24,
