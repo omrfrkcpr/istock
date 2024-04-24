@@ -95,8 +95,13 @@ const RegisterForm = ({
               {(field.name === "password" ||
                 field.name === "confirmPassword") && (
                 <Box
-                  color="primary.main"
-                  sx={{ position: "absolute", top: 15, right: 15 }}
+                  sx={{
+                    position: "absolute",
+                    top: 15,
+                    right: 15,
+                    color: "black",
+                    "&:hover": { color: "gray" },
+                  }}
                 >
                   {field.name === "password" ? (
                     showPassword ? (

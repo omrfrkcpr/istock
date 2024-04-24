@@ -55,12 +55,7 @@ const Register = () => {
           }}
         >
           <AuthImage image={image} />
-          <Typography
-            variant="h5"
-            align="center"
-            mb={2}
-            color="secondary.light"
-          >
+          <Typography variant="h5" align="center" mb={2} color="black">
             SIGN UP
           </Typography>
 
@@ -81,7 +76,7 @@ const Register = () => {
             component={(props) => <RegisterForm {...props} />}
           ></Formik>
 
-          <Box sx={{ textAlign: "center", mt: 2, color: "secondary.main" }}>
+          <Box sx={{ textAlign: "center", mt: 2, color: "black" }}>
             <Link to="/">Already have an account? Sign In</Link>
           </Box>
         </Grid>

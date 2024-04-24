@@ -84,7 +84,7 @@ export default function ProductTable() {
               cursor: "pointer",
               marginTop: ".8rem",
               "&:hover": {
-                color: "red",
+                color: "indianred",
                 scale: "105%",
               },
             }}
@@ -95,7 +95,7 @@ export default function ProductTable() {
   ];
 
   return (
-    <Box sx={{ width: "100%" }} mt={4}>
+    <Box sx={{ width: "100%", height: "81.64vh" }} mt={4}>
       <DataGrid
         autoHeight
         rows={products}

@@ -26,6 +26,7 @@ export default function FirmCard({
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "0.5rem",
+        border: ".5px solid #c4c4c4",
       }}
     >
       <CardContent>
@@ -73,7 +74,7 @@ export default function FirmCard({
           sx={{
             cursor: "pointer",
             "&:hover": {
-              color: "red",
+              color: "indianred",
               scale: "125%",
             },
           }}

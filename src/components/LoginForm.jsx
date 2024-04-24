@@ -35,7 +35,7 @@ const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
       <Form autoComplete="off">
         <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
           {loginFormFields.map((field) => (
-            <Box sx={{ position: "relative" }}>
+            <Box key={field.name} sx={{ position: "relative" }}>
               <FormTextField
                 id={field.name}
                 name={field.name}
@@ -50,8 +50,13 @@ const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
               />
               {field.name === "password" && (
                 <Box
-                  color="primary.main"
-                  sx={{ position: "absolute", top: 15, right: 15 }}
+                  sx={{
+                    position: "absolute",
+                    top: 15,
+                    right: 15,
+                    color: "black",
+                    "&:hover": { color: "gray" },
+                  }}
                 >
                   {showPassword ? (
                     <VisibilityOffIcon

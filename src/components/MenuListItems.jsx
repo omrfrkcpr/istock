@@ -46,19 +46,19 @@ const iconStyle = {
   color: "secondary.main",
   borderRadius: "1rem",
   "&:hover": {
-    backgroundColor: "secondary.main",
+    backgroundColor: "primary.secondary",
     color: "white",
   },
   gap: 1,
 };
 const selectedStyle = {
-  backgroundColor: "secondary.second",
+  backgroundColor: "background.secondary",
   borderRadius: "1rem",
   "&:hover": {
-    backgroundColor: "secondary.main",
-    color: "secondary.second",
+    backgroundColor: "background.tertiary",
+    color: "secondary.secondary",
   },
-  color: "white",
+  color: "text.tertiary",
   gap: 1,
 };
 
@@ -71,7 +71,7 @@ const MenuListItems = () => {
       <Toolbar />
       <List
         sx={{
-          backgroundColor: "background.second",
+          backgroundColor: "background.main",
           height: `calc(100vh - 4rem)`,
         }}
       >

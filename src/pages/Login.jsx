@@ -29,7 +29,6 @@ const Login = () => {
     >
       <Grid
         justifyContent="center"
-        direction="row-reverse"
         sx={{
           height: "100vh",
           maxHeight: "850px",
@@ -55,7 +54,7 @@ const Login = () => {
         >
           <AuthImage image={image} />
 
-          <Typography variant="h5" align="center" color="secondary.main">
+          <Typography variant="h5" align="center" color="black">
             SIGN IN
           </Typography>
 
@@ -74,7 +73,7 @@ const Login = () => {
             component={(props) => <LoginForm {...props} />}
           ></Formik>
 
-          <Box sx={{ textAlign: "center", mt: 2, color: "secondary.main" }}>
+          <Box sx={{ textAlign: "center", mt: 2, color: "black" }}>
             <Link to="/register">Don't have an account? Sign Up</Link>
           </Box>
         </Grid>

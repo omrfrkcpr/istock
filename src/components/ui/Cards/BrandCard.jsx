@@ -24,6 +24,7 @@ export default function BrandCard({
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "0.5rem",
+        border: ".5px solid #c4c4c4",
       }}
     >
       <CardContent>
@@ -62,7 +63,7 @@ export default function BrandCard({
           sx={{
             cursor: "pointer",
             "&:hover": {
-              color: "red",
+              color: "indianred",
               scale: "125%",
             },
           }}
