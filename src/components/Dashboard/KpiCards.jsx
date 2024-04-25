@@ -1,12 +1,13 @@
 // 'use client';
 import { Card } from "@tremor/react";
 import { useSelector } from "react-redux";
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 const getTotals = (arr) => {
   return arr.reduce((acc, item) => acc + item.amount, 0);
+};
+
+const formatNumber = (number) => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 };
 
 export default function KpiCards() {
@@ -19,23 +20,19 @@ export default function KpiCards() {
     {
       name: "Sales",
       value: `€ ${totalSales}`,
-      //   change: '+6.1%',
-      //   changeType: 'positive',
+      //   change: '-1.2%',
+      //   changeType: 'negative',
       color: "indigo",
     },
     {
       name: "Cash",
       value: `€ ${totalSales - totalPurchases}`,
-      //   change: '+19.2%',
-      //   changeType: 'positive',
       color: "amber",
     },
     {
       name: "Purchases",
       value: `€ ${totalPurchases}`,
-      //   change: '-1.2%',
-      //   changeType: 'negative',
-      color: "fuchsia",
+      color: "rose",
     },
   ];
   return (
@@ -45,7 +42,7 @@ export default function KpiCards() {
           <Card key={item.name} decoration="top" decorationColor={item.color}>
             <p className="flex items-start justify-between">
               <span className="text-[2rem] sm:text-[1.6rem] xl:text-tremor-metric  font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
-                {item.value}
+                {formatNumber(item.value)}
               </span>
               {/* <span
                 className={classNames(

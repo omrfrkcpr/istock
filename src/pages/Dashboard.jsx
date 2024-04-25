@@ -92,7 +92,7 @@ const getDesignTokens = (mode) => ({
             main: "#6b6b6b",
           },
           background: {
-            main: "#59664b",
+            main: "#333333",
             secondary: "#6b6b6b",
             tertiary: "#2a2d27",
           },
@@ -111,15 +111,18 @@ function Dashboard(props) {
   const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   const colorMode = React.useMemo(
     () => ({
       // The dark mode switch would invoke this method
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-        document.documentElement.classList.remove(
-          mode === "light" ? "light" : "dark"
-        );
-        document.documentElement.classList.add(newMode);
+        setMode((prevMode) => {
+          const newMode = prevMode === "light" ? "dark" : "light";
+          const htmlElement = document.documentElement;
+          htmlElement.classList.remove(prevMode);
+          htmlElement.classList.add(newMode);
+          return newMode;
+        });
       },
     }),
     []
@@ -144,12 +147,6 @@ function Dashboard(props) {
       setMobileOpen(!mobileOpen);
     }
   };
-
-  React.useEffect(() => {
-    const htmlElement = document.documentElement;
-    htmlElement.classList.remove(mode === "light" ? "light" : "dark");
-    htmlElement.classList.add(mode);
-  }, [mode]);
 
   const container =
     window !== undefined ? () => window().document.body : undefined;

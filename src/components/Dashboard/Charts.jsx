@@ -1,47 +1,27 @@
 import { Grid } from "@mui/material";
-import { AreaChart } from "@tremor/react";
 import { useSelector } from "react-redux";
+import Chart from "./Chart";
 
-const dataFormatter = (number) =>
-  `€ ${Intl.NumberFormat("us").format(number).toString()}`;
 
-const getData = (data) => {
+const getData = (data, categoryName) => {
   return data.map((item) => ({
     date: new Date(item.createdAt).toLocaleString(),
-    category: item.amount,
+    [categoryName]: item.amount,
   }));
 };
 
-export default function Charts() {
+const Charts = () => {
   const { sales, purchases } = useSelector((state) => state.stock);
 
-  const salesData = getData(sales);
-  const purchasesData = getData(purchases);
+  const salesData = getData(sales, "Sales");
+  const purchasesData = getData(purchases, "Purchases");
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} md={6}>
-        <AreaChart
-          className="h-80"
-          data={salesData}
-          index="date"
-          categories={["category"]}
-          colors={["indigo"]}
-          valueFormatter={dataFormatter}
-          yAxisWidth={60}
-        />
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <AreaChart
-          className="h-80"
-          data={purchasesData}
-          index="date"
-          categories={["category"]}
-          colors={["rose"]}
-          valueFormatter={dataFormatter}
-          yAxisWidth={60}
-        />
-      </Grid>
+      <Chart data={salesData} categoryName="Sales" color="indigo" />
+      <Chart data={purchasesData} categoryName="Purchases" color="rose" />
     </Grid>
   );
-}
+};
+
+export default Charts;

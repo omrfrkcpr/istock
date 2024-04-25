@@ -4,7 +4,7 @@ import { GridActionsCellItem } from "@mui/x-data-grid";
 import React from "react";
 import { useSelector } from "react-redux";
 import useStockCall from "../../hooks/useStockCall";
-import { btnStyle } from "../../styles/globalStyle";
+import { deleteBtnStyle, editBtnStyle } from "../../styles/globalStyle";
 import DataTable from "../Commons/DataTable";
 
 const PurchaseTable = ({ handleOpen, setInitialState }) => {
@@ -102,14 +102,14 @@ const PurchaseTable = ({ handleOpen, setInitialState }) => {
                 firmId,
               });
             }}
-            sx={btnStyle}
+            sx={editBtnStyle}
           />,
           <GridActionsCellItem
             key={"delete"}
             icon={<DeleteIcon />}
             label="Delete"
             onClick={() => deleteStockData("purchases", _id)}
-            sx={btnStyle}
+            sx={deleteBtnStyle}
           />,
         ];
       },

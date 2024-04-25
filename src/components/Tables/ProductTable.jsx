@@ -2,13 +2,16 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import useStockCall from "../../hooks/useStockCall";
+import { GridActionsCellItem } from "@mui/x-data-grid";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { deleteBtnStyle } from "../../styles/globalStyle";
 
 function getRowId(row) {
   console.log(row);
   return row._id;
 }
+
 export default function ProductTable() {
   const { products } = useSelector((state) => state.stock);
   const { deleteStockData } = useStockCall();
@@ -78,7 +81,7 @@ export default function ProductTable() {
       renderCell: (params) => (
         // console.log(params)
         <strong>
-          <DeleteOutlineIcon
+          {/* <DeleteOutlineIcon
             onClick={() => deleteStockData("products", params?.id)}
             sx={{
               cursor: "pointer",
@@ -89,6 +92,13 @@ export default function ProductTable() {
                 scale: "125%",
               },
             }}
+          /> */}
+          <GridActionsCellItem
+            key={"delete"}
+            icon={<DeleteIcon />}
+            label="Delete"
+            onClick={() => deleteStockData("products", params._id)}
+            sx={deleteBtnStyle}
           />
         </strong>
       ),

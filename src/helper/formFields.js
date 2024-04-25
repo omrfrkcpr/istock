@@ -19,6 +19,7 @@ export const firmFields = [
   { label: "Firm Name", name: "name", id: "name", type: "text" },
   { label: "Firm Address", name: "address", id: "address", type: "text" },
   { label: "Firm Phone", name: "phone", id: "phone", type: "text" },
+  { label: "Firm Email", name: "email", id: "email", type: "email" },
   { label: "Firm Logo", name: "image", id: "image", type: "text" },
 ];
 

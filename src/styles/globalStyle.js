@@ -1,8 +1,17 @@
-export const btnStyle = {
+export const deleteBtnStyle = {
   cursor: "pointer",
   color: "secondary.main",
   "&:hover": {
-    color: "red",
+    color: "indianred",
+    scale: "125%",
+  },
+};
+export const editBtnStyle = {
+  cursor: "pointer",
+  color: "secondary.main",
+  "&:hover": {
+    color: "orange",
+    scale: "125%",
   },
 };
 export const flexColumn = {
@@ -22,8 +31,8 @@ export const modalStyle = {
   p: 4,
 };
 export const flex = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 2,
-  };
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: 2,
+};
