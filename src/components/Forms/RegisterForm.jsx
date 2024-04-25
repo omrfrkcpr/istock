@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import FormTextField from "../components/ui/TextFields/FormTextField";
+import FormTextField from "../../components/TextFields/FormTextField";
 
 export const SignupSchema = Yup.object().shape({
   username: Yup.string().min(3).max(15).required("Required!"),

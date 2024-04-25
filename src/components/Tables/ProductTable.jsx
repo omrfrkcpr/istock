@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import useStockCall from "../../../hooks/useStockCall";
+import useStockCall from "../../hooks/useStockCall";
 
 function getRowId(row) {
   console.log(row);
@@ -82,10 +82,11 @@ export default function ProductTable() {
             onClick={() => deleteStockData("products", params?.id)}
             sx={{
               cursor: "pointer",
-              marginTop: ".8rem",
+              color: "black",
+              marginBottom: ".2rem",
               "&:hover": {
                 color: "indianred",
-                scale: "105%",
+                scale: "125%",
               },
             }}
           />

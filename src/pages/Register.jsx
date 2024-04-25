@@ -3,12 +3,12 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import RegisterForm from "../components/RegisterForm";
+import RegisterForm from "../components/Forms/RegisterForm";
 import image from "../assets/security.png";
-import AuthHeader from "../components/AuthHeader";
-import AuthImage from "../components/AuthImage";
+import AuthHeader from "../components/Commons/AuthHeader";
+import AuthImage from "../components/Commons/AuthImage";
 import useAuthCall from "../hooks/useAuthCall";
-import { SignupSchema } from "../components/RegisterForm";
+import { SignupSchema } from "../components/Forms/RegisterForm";
 import background from "../assets/background.jpg";
 
 const Register = () => {
@@ -48,7 +48,7 @@ const Register = () => {
             backgroundColor: "rgba(255, 255, 255, 0.9)",
             height: "fit-content",
             padding: "1rem",
-            boxShadow: "2px 2px 50px black",
+            boxShadow: "2px 2px 20px white",
             maxWidth: "500px",
             margin: "auto",
             textAlign: "center  ",

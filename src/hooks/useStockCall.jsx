@@ -1,9 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   fetchFail,
   fetchStart,
-  getSuccess,
   getProCatBrandSuccess,
+  getProPurcFirBrandsSuccess,
+  getProSalBrandsSuccess,
+  getPurcSalesSuccess,
+  getSuccess,
 } from "../features/stockSlice";
 import useAxios from "./useAxios";
 import { toastSuccessNotify } from "../helper/ToastNotify";
@@ -93,12 +96,71 @@ const useStockCall = () => {
     }
   };
 
+  const getProSalBrands = async () => {
+    dispatch(fetchStart());
+    try {
+      // const { data } = await axiosWithToken.get(`stock/${url}/`);
+      const [products, brands, sales] = await Promise.all([
+        axiosWithToken.get(`products/`),
+        axiosWithToken.get(`brands/`),
+        axiosWithToken.get(`sales/`),
+      ]);
+
+      dispatch(
+        getProSalBrandsSuccess([products?.data, brands?.data, sales?.data])
+      );
+    } catch (error) {
+      dispatch(fetchFail());
+    }
+  };
+
+  const getProPurcFirBrands = async () => {
+    dispatch(fetchStart());
+    try {
+      // const { data } = await axiosWithToken.get(`stock/${url}/`);
+      const [products, purchases, firms, brands] = await Promise.all([
+        axiosWithToken.get(`products/`),
+        axiosWithToken.get(`purchases/`),
+        axiosWithToken.get(`firms/`),
+        axiosWithToken.get(`brands/`),
+      ]);
+
+      dispatch(
+        getProPurcFirBrandsSuccess([
+          products?.data,
+          purchases?.data,
+          firms?.data,
+          brands?.data,
+        ])
+      );
+    } catch (error) {
+      dispatch(fetchFail());
+    }
+  };
+
+  const getPurcSales = async () => {
+    dispatch(fetchStart());
+    try {
+      const [sales, purchases] = await Promise.all([
+        axiosWithToken.get(`sales/`),
+        axiosWithToken.get(`purchases/`),
+      ]);
+
+      dispatch(getPurcSalesSuccess([sales?.data, purchases?.data]));
+    } catch (error) {
+      dispatch(fetchFail());
+    }
+  };
+
   return {
     deleteStockData,
-    getStockData,
-    postStockData,
     putStockData,
+    postStockData,
+    getStockData,
     getProCatBrand,
+    getProSalBrands,
+    getProPurcFirBrands,
+    getPurcSales,
   };
 };
 

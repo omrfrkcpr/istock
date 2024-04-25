@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
-import FirmCard from "../components/ui/Cards/FirmCard";
-import FirmModal from "../components/ui/Modals/FirmModal";
+import FirmCard from "../components/Cards/FirmCard";
+import MyButton from "../components/Commons/MyButton";
+import PageHeader from "../components/Commons/PageHeader";
+import StockModal from "../components/Commons/StockModal";
+import FirmForm from "../components/Forms/FirmForm";
 import useStockCall from "../hooks/useStockCall";
 
 const Firms = () => {
@@ -28,24 +29,16 @@ const Firms = () => {
     address: "",
     image: "",
   });
-
+  console.log("firms:", firms);
+  console.log("firms:", initialState);
   useEffect(() => {
     getStockData("firms");
   }, []);
 
   return (
-    <Container>
-      <Typography
-        align="center"
-        variant="h4"
-        component="h1"
-        color="secondary.second"
-      >
-        Firms
-      </Typography>
-      <Button variant="contained" onClick={handleOpen}>
-        New Firm
-      </Button>
+    <Container maxWidth={"xl"}>
+      <PageHeader text="Firms" />
+      <MyButton variant="contained" onClick={handleOpen} title="New Firm" />
       <Grid container spacing={2} mt={3}>
         {firms.map((firm) => (
           <Grid item xs={12} md={6} lg={4} xl={3} key={firm._id}>
@@ -58,11 +51,9 @@ const Firms = () => {
         ))}
       </Grid>
       {open && (
-        <FirmModal
-          open={open}
-          handleClose={handleClose}
-          initialState={initialState}
-        />
+        <StockModal open={open} handleClose={handleClose}>
+          <FirmForm handleClose={handleClose} initialState={initialState} />
+        </StockModal>
       )}
     </Container>
   );

@@ -1,5 +1,5 @@
 import { Dropdown } from "react-bulma-components";
-import useTranslations from "../hooks/useTranslations";
+import useTranslations from "../../hooks/useTranslations";
 
 export function Switch() {
   const { lang, supportedLangs, setLang } = useTranslations();

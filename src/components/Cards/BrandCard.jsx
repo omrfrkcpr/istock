@@ -6,14 +6,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import useStockCall from "../../../hooks/useStockCall";
+import useStockCall from "../../hooks/useStockCall";
 
-export default function FirmCard({
+export default function BrandCard({
   _id,
   name,
-  address,
   image,
-  phone,
   handleOpen,
   setInitialState,
 }) {
@@ -33,9 +31,6 @@ export default function FirmCard({
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {address}
-        </Typography>
       </CardContent>
       <CardMedia
         sx={{ height: 140, objectFit: "contain" }}
@@ -43,12 +38,6 @@ export default function FirmCard({
         image={image}
         title={name}
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          Phone : {phone}
-        </Typography>
-      </CardContent>
-
       <CardActions
         sx={{
           justifyContent: "center",
@@ -59,7 +48,7 @@ export default function FirmCard({
         <EditIcon
           onClick={() => {
             handleOpen();
-            setInitialState({ _id, name, phone, image, address });
+            setInitialState({ _id, name, image });
           }}
           sx={{
             cursor: "pointer",
@@ -70,7 +59,7 @@ export default function FirmCard({
           }}
         />
         <DeleteOutlineIcon
-          onClick={() => deleteStockData("firms", _id)}
+          onClick={() => deleteStockData("brands", _id)}
           sx={{
             cursor: "pointer",
             "&:hover": {

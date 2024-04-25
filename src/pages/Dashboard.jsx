@@ -11,12 +11,12 @@ import { Outlet } from "react-router-dom";
 import useAuthCall from "../hooks/useAuthCall";
 import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
-import MenuListItems from "../components/MenuListItems";
+import MenuListItems from "../components/Navigation/MenuListItems";
 import { useMediaQuery } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Switch } from "../components/Switch";
+import { Switch } from "../components/Commons/Switch";
 import "bulma/css/bulma.css";
 import "bulma/css/bulma.min.css";
 
@@ -116,6 +116,10 @@ function Dashboard(props) {
       // The dark mode switch would invoke this method
       toggleColorMode: () => {
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+        document.documentElement.classList.remove(
+          mode === "light" ? "light" : "dark"
+        );
+        document.documentElement.classList.add(newMode);
       },
     }),
     []
@@ -140,6 +144,12 @@ function Dashboard(props) {
       setMobileOpen(!mobileOpen);
     }
   };
+
+  React.useEffect(() => {
+    const htmlElement = document.documentElement;
+    htmlElement.classList.remove(mode === "light" ? "light" : "dark");
+    htmlElement.classList.add(mode);
+  }, [mode]);
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
@@ -258,6 +268,8 @@ function Dashboard(props) {
           component="main"
           sx={{
             flexGrow: 1,
+            minHeight: "100vh",
+            maxHeight: "100%",
             p: 3,
             width: {
               sm: `calc(100% - ${drawerWidth}px)`,

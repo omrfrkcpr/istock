@@ -5,11 +5,11 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import image from "../assets/securityOpen.png";
 import { Link } from "react-router-dom";
-import AuthHeader from "../components/AuthHeader";
-import AuthImage from "../components/AuthImage";
+import AuthHeader from "../components/Commons/AuthHeader";
+import AuthImage from "../components/Commons/AuthImage";
 import useAuthCall from "../hooks/useAuthCall";
-import LoginForm from "../components/LoginForm";
-import { SignupSchema } from "../components/LoginForm";
+import LoginForm from "../components/Forms/LoginForm";
+import { SignupSchema } from "../components/Forms/LoginForm";
 import background from "../assets/background.jpg";
 
 const Login = () => {
@@ -46,7 +46,7 @@ const Login = () => {
             height: "fit-content",
             backgroundColor: "rgba(255, 255, 255, 0.9)",
             padding: "1rem",
-            boxShadow: "2px 2px 50px black",
+            boxShadow: "2px 2px 20px white",
             maxWidth: "500px",
             margin: "auto",
             textAlign: "center  ",

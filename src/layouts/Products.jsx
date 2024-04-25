@@ -1,11 +1,12 @@
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import ProductModal from "../components/ui/Modals/ProductModal";
+import MyButton from "../components/Commons/MyButton";
+import PageHeader from "../components/Commons/PageHeader";
+import StockModal from "../components/Commons/StockModal";
+import ProductForm from "../components/Forms/ProductForm";
+import ProductTable from "../components/Tables/ProductTable";
 import useStockCall from "../hooks/useStockCall";
-import ProductTable from "../components/ui/Tables/ProductTable";
 
 const Products = () => {
   const { getProCatBrand } = useStockCall();
@@ -23,19 +24,14 @@ const Products = () => {
 
   return (
     <Container maxWidth={"xl"}>
-      <Typography
-        align="center"
-        variant="h4"
-        component="h1"
-        color="secondary.second"
-      >
-        Products
-      </Typography>
-      <Button variant="contained" onClick={handleOpen}>
-        New Product
-      </Button>
+      <PageHeader text="Products" />
+      <MyButton variant="contained" onClick={handleOpen} title="New Product" />
+      {open && (
+        <StockModal open={open} handleClose={handleClose}>
+          <ProductForm handleClose={handleClose} />
+        </StockModal>
+      )}
       <ProductTable />
-      {open && <ProductModal open={open} handleClose={handleClose} />}
     </Container>
   );
 };

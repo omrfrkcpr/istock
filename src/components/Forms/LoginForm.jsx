@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import FormTextField from "../components/ui/TextFields/FormTextField";
+import FormTextField from "../../components/TextFields/FormTextField";
 
 export const SignupSchema = Yup.object().shape({
   username: Yup.string().required("Required!"),
