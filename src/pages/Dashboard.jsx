@@ -16,11 +16,13 @@ import { useMediaQuery } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Switch } from "../components/Commons/Switch";
-import "bulma/css/bulma.css";
-import "bulma/css/bulma.min.css";
-
-import useTranslations from "../hooks/useTranslations";
+import { useTranslation } from "react-i18next";
+import Switch from "../components/Commons/Switch";
+import {
+  smallScreenStyle,
+  containerStyle,
+  largeScreenStyle,
+} from "../styles/globalStyle";
 
 const drawerWidth = 200;
 
@@ -66,6 +68,7 @@ const getDesignTokens = (mode) => ({
           },
           tertiary: {
             main: "#ffffff",
+            secondary: "#abba9b",
           },
           background: {
             main: "#cde0ba",
@@ -90,6 +93,7 @@ const getDesignTokens = (mode) => ({
           },
           tertiary: {
             main: "#6b6b6b",
+            secondary: "white",
           },
           background: {
             main: "#333333",
@@ -106,7 +110,8 @@ const getDesignTokens = (mode) => ({
 });
 
 function Dashboard(props) {
-  const { t } = useTranslations();
+  const { t, i18n } = useTranslation();
+
   const [mode, setMode] = React.useState("light");
   const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
@@ -128,6 +133,10 @@ function Dashboard(props) {
     []
   );
 
+  const dynamicContainerStyle = isSmallScreen
+    ? { ...containerStyle, ...smallScreenStyle }
+    : { ...containerStyle, ...largeScreenStyle };
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
@@ -148,15 +157,15 @@ function Dashboard(props) {
     }
   };
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
-  const buttonStyle = {
-    zIndex: 1500,
+  const toggleBtnStyle = {
     position: "fixed",
     top: isSmallScreen ? 9 : 13,
-    [isSmallScreen ? "left" : "right"]: isSmallScreen ? 32 : 230,
+    [isSmallScreen ? "left" : "right"]: isSmallScreen ? 32 : 175,
+    border: `.5px solid ${mode === "light" ? "#abba9b" : "#6B6B6B"}`,
   };
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <ThemeProvider theme={theme}>
@@ -182,19 +191,6 @@ function Dashboard(props) {
             >
               <MenuIcon />
             </IconButton>
-
-            <IconButton
-              sx={buttonStyle}
-              onClick={colorMode.toggleColorMode}
-              color="black"
-            >
-              {theme.palette.mode === "dark" ? (
-                <Brightness7Icon />
-              ) : (
-                <Brightness4Icon />
-              )}
-            </IconButton>
-
             <Typography
               variant="h6"
               noWrap
@@ -203,20 +199,38 @@ function Dashboard(props) {
             >
               Stock App
             </Typography>
-            <Switch />
-            <Button
-              color="inherit"
-              onClick={logout}
-              sx={{
-                gap: 1,
-                "&:hover": {
-                  backgroundColor: "secondary.second",
-                  color: "text.secondary",
-                },
-              }}
-            >
-              {t.logout} Logout <LogoutIcon />
-            </Button>
+
+            <div style={dynamicContainerStyle}>
+              <Button
+                color="inherit"
+                onClick={logout}
+                sx={{
+                  gap: 1,
+                  minWidth: "150px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "end",
+                  "&:hover": {
+                    backgroundColor: "secondary.second",
+                    color: "text.secondary",
+                  },
+                }}
+              >
+                <span>{t("logout")}</span> <LogoutIcon />
+              </Button>
+              <IconButton
+                sx={toggleBtnStyle}
+                onClick={colorMode.toggleColorMode}
+                color="black"
+              >
+                {theme.palette.mode === "dark" ? (
+                  <Brightness7Icon />
+                ) : (
+                  <Brightness4Icon />
+                )}
+              </IconButton>
+              <Switch />
+            </div>
           </Toolbar>
         </AppBar>
         <Box

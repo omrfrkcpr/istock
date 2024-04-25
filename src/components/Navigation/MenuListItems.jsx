@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+
 const getIcon = (name) => `/assets/navbar/${name}.svg`;
 
 const links = [
@@ -71,6 +72,7 @@ const MenuListItems = () => {
       <Toolbar />
       <List
         sx={{
+          position: "relative",
           backgroundColor: "background.main",
           height: `calc(100vh - 4rem)`,
         }}

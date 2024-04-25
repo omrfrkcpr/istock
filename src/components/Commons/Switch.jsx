@@ -1,26 +1,76 @@
-import { Dropdown } from "react-bulma-components";
-import useTranslations from "../../hooks/useTranslations";
+import React from "react";
+import { MenuItem, Select } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
-export function Switch() {
-  const { lang, supportedLangs, setLang } = useTranslations();
+const Switch = () => {
+  const { t, i18n } = useTranslation();
 
-  const handleLangChange = (newLang) => {
-    setLang(newLang);
-    console.log(newLang);
+  console.log(i18n.language);
+
+  const handleLanguageChange = async (e) => {
+    const selectedLanguage = e.target.value;
+    await i18n.changeLanguage(selectedLanguage);
   };
 
   return (
-    <Dropdown value={lang} color="dark" mr={1}>
-      {Object.entries(supportedLangs).map(([code, name]) => (
-        <Dropdown.Item
-          key={code}
-          value={code}
-          onClick={() => handleLangChange(code)}
-          style={{ cursor: "pointer" }}
-        >
-          {name}
-        </Dropdown.Item>
-      ))}
-    </Dropdown>
+    <Select
+      value={i18n.language}
+      onChange={handleLanguageChange}
+      sx={{
+        "& .MuiSelect-select": {
+          display: "flex",
+          alignItems: "center",
+          padding: "0 0.5rem",
+        },
+      }}
+    >
+      <MenuItem
+        value="en"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <img
+          src="https://flagsapi.com/US/flat/32.png"
+          alt="en"
+          style={{ marginRight: "10px" }}
+        />
+        <span>English</span>
+      </MenuItem>
+      <MenuItem
+        value="de"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <img
+          src="https://flagsapi.com/DE/flat/32.png"
+          alt="de"
+          style={{ marginRight: "10px" }}
+        />
+        <span>German</span>
+      </MenuItem>
+      <MenuItem
+        value="tr"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <img
+          src="https://flagsapi.com/TR/flat/32.png"
+          alt="tr"
+          style={{ marginRight: "10px" }}
+        />
+        <span>Turkish</span>
+      </MenuItem>
+    </Select>
   );
-}
+};
+
+export default Switch;
