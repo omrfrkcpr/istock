@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Switch from "../../components/Commons/Switch";
+import logo from "../../../public/assets/logo.png";
 
 const getIcon = (name) => `/assets/navbar/${name}.svg`;
 
@@ -75,39 +76,53 @@ const MenuListItems = () => {
           position: "relative",
           backgroundColor: "background.main",
           height: `calc(100vh - 4rem)`,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
         }}
       >
-        {links.map(({ title, url, icon }, index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemButton
-              onClick={() => navigate(url)}
-              sx={pathname === url ? selectedStyle : iconStyle}
-            >
-              <Box
-                sx={{
-                  width: 24,
-                  height: 24,
-                  mask: `url(${icon}) no-repeat center / contain`,
-                  bgcolor: "currentcolor",
-                }}
-              />
-              <ListItemText primary={title} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-        {window.innerWidth < 600 && (
-          <div
+        <div>
+          {links.map(({ title, url, icon }, index) => (
+            <ListItem key={index} disablePadding>
+              <ListItemButton
+                onClick={() => navigate(url)}
+                sx={pathname === url ? selectedStyle : iconStyle}
+              >
+                <Box
+                  sx={{
+                    width: 24,
+                    height: 24,
+                    mask: `url(${icon}) no-repeat center / contain`,
+                    bgcolor: "currentcolor",
+                  }}
+                />
+                <ListItemText primary={title} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </div>
+        <div>
+          <img
+            src={logo}
+            alt=""
             style={{
-              display: "flex",
-              position: "absolute",
-              bottom: "1rem",
-              left: "1rem",
-              flexDirection: "column",
+              width: "150px",
+              margin: "1rem auto",
             }}
-          >
-            <Switch />
-          </div>
-        )}
+          />
+          {window.innerWidth < 600 && (
+            <div
+              style={{
+                display: "flex",
+                marginTop: "2rem",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Switch />
+            </div>
+          )}
+        </div>
       </List>
     </div>
   );

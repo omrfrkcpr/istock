@@ -151,9 +151,9 @@ function Dashboard(props) {
 
   const toggleBtnStyle = {
     position: "fixed",
-    top: isSmallScreen ? 9 : 13,
+    top: isSmallScreen ? "9px" : "13px",
     padding: "7px",
-    [isSmallScreen ? "left" : "right"]: isSmallScreen ? 45 : 135,
+    [isSmallScreen ? "left" : "right"]: isSmallScreen ? "45px" : "135px",
     // border: `.5px solid ${mode === "light" ? "#abba9b" : "#6B6B6B"}`,
   };
 
@@ -190,6 +190,9 @@ function Dashboard(props) {
               component="div"
               sx={{
                 flexGrow: 1,
+                height: "50px",
+                display: "flex",
+                alignItems: "center",
                 textAlign: {
                   xs: "center",
                   sm: "left",
@@ -197,7 +200,16 @@ function Dashboard(props) {
                 marginLeft: { xs: "40px", sm: "0px" },
               }}
             >
-              Stock App
+              <span
+                style={{
+                  backgroundColor: "#E6E6E6",
+                  padding: "0.2rem .5rem",
+                  color: "black",
+                  borderRadius: "10px",
+                }}
+              >
+                IStock
+              </span>
             </Typography>
             {isSmallScreen && (
               <IconButton
