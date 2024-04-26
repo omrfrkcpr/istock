@@ -18,11 +18,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import Switch from "../components/Commons/Switch";
-import {
-  smallScreenStyle,
-  containerStyle,
-  largeScreenStyle,
-} from "../styles/globalStyle";
+import { containerStyle } from "../styles/globalStyle";
 
 const drawerWidth = 200;
 
@@ -133,10 +129,6 @@ function Dashboard(props) {
     []
   );
 
-  const dynamicContainerStyle = isSmallScreen
-    ? { ...containerStyle, ...smallScreenStyle }
-    : { ...containerStyle, ...largeScreenStyle };
-
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
@@ -160,8 +152,9 @@ function Dashboard(props) {
   const toggleBtnStyle = {
     position: "fixed",
     top: isSmallScreen ? 9 : 13,
-    [isSmallScreen ? "left" : "right"]: isSmallScreen ? 32 : 175,
-    border: `.5px solid ${mode === "light" ? "#abba9b" : "#6B6B6B"}`,
+    padding: "7px",
+    [isSmallScreen ? "left" : "right"]: isSmallScreen ? 45 : 153,
+    // border: `.5px solid ${mode === "light" ? "#abba9b" : "#6B6B6B"}`,
   };
 
   const container =
@@ -199,25 +192,7 @@ function Dashboard(props) {
             >
               Stock App
             </Typography>
-
-            <div style={dynamicContainerStyle}>
-              <Button
-                color="inherit"
-                onClick={logout}
-                sx={{
-                  gap: 1,
-                  minWidth: "150px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "end",
-                  "&:hover": {
-                    backgroundColor: "secondary.second",
-                    color: "text.secondary",
-                  },
-                }}
-              >
-                <span>{t("logout")}</span> <LogoutIcon />
-              </Button>
+            {isSmallScreen && (
               <IconButton
                 sx={toggleBtnStyle}
                 onClick={colorMode.toggleColorMode}
@@ -229,8 +204,60 @@ function Dashboard(props) {
                   <Brightness4Icon />
                 )}
               </IconButton>
-              <Switch />
-            </div>
+            )}
+            {isSmallScreen && (
+              <Button
+                color="inherit"
+                onClick={logout}
+                sx={{
+                  gap: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: "-20px",
+                  "&:hover": {
+                    backgroundColor: "secondary.second",
+                    color: "text.secondary",
+                  },
+                }}
+              >
+                <span>{t("logout")}</span> <LogoutIcon />
+              </Button>
+            )}
+
+            {!isSmallScreen && (
+              <div style={containerStyle}>
+                <Button
+                  color="inherit"
+                  onClick={logout}
+                  sx={{
+                    gap: 1,
+                    minWidth: "150px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "end",
+                    "&:hover": {
+                      backgroundColor: "secondary.second",
+                      color: "text.secondary",
+                    },
+                  }}
+                >
+                  <span>{t("logout")}</span> <LogoutIcon />
+                </Button>
+                <IconButton
+                  sx={toggleBtnStyle}
+                  onClick={colorMode.toggleColorMode}
+                  color="black"
+                >
+                  {theme.palette.mode === "dark" ? (
+                    <Brightness7Icon />
+                  ) : (
+                    <Brightness4Icon />
+                  )}
+                </IconButton>
+                <Switch />
+              </div>
+            )}
           </Toolbar>
         </AppBar>
         <Box

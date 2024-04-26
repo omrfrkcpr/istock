@@ -6,7 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import Switch from "../../components/Commons/Switch";
 
 const getIcon = (name) => `/assets/navbar/${name}.svg`;
 
@@ -95,6 +95,19 @@ const MenuListItems = () => {
             </ListItemButton>
           </ListItem>
         ))}
+        {window.innerWidth < 600 && (
+          <div
+            style={{
+              display: "flex",
+              position: "absolute",
+              bottom: "1rem",
+              left: "1rem",
+              flexDirection: "column",
+            }}
+          >
+            <Switch />
+          </div>
+        )}
       </List>
     </div>
   );

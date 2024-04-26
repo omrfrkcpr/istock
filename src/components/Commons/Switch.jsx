@@ -37,7 +37,7 @@ const Switch = () => {
           alt="en"
           style={{ marginRight: "10px" }}
         />
-        <span>English</span>
+        <span>EN</span>
       </MenuItem>
       <MenuItem
         value="de"
@@ -52,7 +52,7 @@ const Switch = () => {
           alt="de"
           style={{ marginRight: "10px" }}
         />
-        <span>German</span>
+        <span>DE</span>
       </MenuItem>
       <MenuItem
         value="tr"
@@ -67,7 +67,7 @@ const Switch = () => {
           alt="tr"
           style={{ marginRight: "10px" }}
         />
-        <span>Turkish</span>
+        <span>TR</span>
       </MenuItem>
     </Select>
   );

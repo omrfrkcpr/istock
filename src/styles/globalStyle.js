@@ -41,14 +41,6 @@ export const containerStyle = {
   display: "flex",
   justifyContent: "space-between",
   textAlign: "right",
-};
-
-export const smallScreenStyle = {
-  gap: "10px",
-  width: "250px",
-};
-
-export const largeScreenStyle = {
-  gap: "60px",
-  width: "350px",
+  gap: "30px",
+  width: "300px",
 };
