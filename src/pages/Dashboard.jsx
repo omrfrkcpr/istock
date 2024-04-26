@@ -153,7 +153,7 @@ function Dashboard(props) {
     position: "fixed",
     top: isSmallScreen ? 9 : 13,
     padding: "7px",
-    [isSmallScreen ? "left" : "right"]: isSmallScreen ? 45 : 153,
+    [isSmallScreen ? "left" : "right"]: isSmallScreen ? 45 : 135,
     // border: `.5px solid ${mode === "light" ? "#abba9b" : "#6B6B6B"}`,
   };
 
@@ -188,7 +188,14 @@ function Dashboard(props) {
               variant="h6"
               noWrap
               component="div"
-              sx={{ flexGrow: 1, textAlign: { xs: "center", sm: "left" } }}
+              sx={{
+                flexGrow: 1,
+                textAlign: {
+                  xs: "center",
+                  sm: "left",
+                },
+                marginLeft: { xs: "40px", sm: "0px" },
+              }}
             >
               Stock App
             </Typography>
@@ -212,16 +219,20 @@ function Dashboard(props) {
                 sx={{
                   gap: 1,
                   display: "flex",
+                  minWidth: "115px",
+                  fontSize: ".7rem",
                   alignItems: "center",
-                  justifyContent: "center",
-                  marginRight: "-20px",
+                  justifyContent: "end",
+                  marginRight: "-10px",
+                  marginTop: "3px",
                   "&:hover": {
                     backgroundColor: "secondary.second",
                     color: "text.secondary",
                   },
                 }}
               >
-                <span>{t("logout")}</span> <LogoutIcon />
+                <span>{t("logout")}</span>{" "}
+                <LogoutIcon style={{ width: "15px" }} />
               </Button>
             )}
 
