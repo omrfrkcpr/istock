@@ -237,14 +237,23 @@ function Dashboard(props) {
                   justifyContent: "end",
                   marginRight: "-10px",
                   marginTop: "3px",
-                  "&:hover": {
-                    backgroundColor: "secondary.second",
-                    color: "text.secondary",
-                  },
                 }}
               >
-                <span>{t("logout")}</span>{" "}
-                <LogoutIcon style={{ width: "15px" }} />
+                <span
+                  style={{
+                    "&:hover": {
+                      backgroundColor: "secondary.second",
+                      color: "text.secondary",
+                    },
+                  }}
+                >
+                  {t("logout")}
+                </span>{" "}
+                <LogoutIcon
+                  style={{
+                    width: "15px",
+                  }}
+                />
               </Button>
             )}
 
@@ -259,13 +268,19 @@ function Dashboard(props) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "end",
-                    "&:hover": {
-                      backgroundColor: "secondary.second",
-                      color: "text.secondary",
-                    },
                   }}
                 >
-                  <span>{t("logout")}</span> <LogoutIcon />
+                  <span
+                    style={{
+                      "&:hover": {
+                        backgroundColor: "secondary.second",
+                        color: "text.secondary",
+                      },
+                    }}
+                  >
+                    {t("logout")}
+                  </span>{" "}
+                  <LogoutIcon />
                 </Button>
                 <IconButton
                   sx={toggleBtnStyle}
