@@ -53,5 +53,19 @@
   "products-form-label3": "Ürün Adı",
   "products-form-label4": "Stok",
   "products-form-label5": "İşlemler",
-  "products-form-submitBtn": "ÜRÜN OLUŞTUR"
+  "products-form-submitBtn": "ÜRÜN OLUŞTUR",
+  "messages-login-success": "Başarıyla giriş yaptınız!",
+  "messages-login-error": "Giriş yapılamadı",
+  "messages-logout-success": "Başarıyla çıkış yaptınız!",
+  "messages-logout-error": "Çıkış yapılamadı",
+  "messages-register-success": "Başarıyla kaydoldunuz!",
+  "messages-register-error": "Kayıt yapılamadı",
+  "messages-delete-confirm": "Silmek istediğinizden emin misiniz?",
+  "messages-delete-success": "başarıyla silindi!",
+  "messages-delete-error": "silinemedi!",
+  "messages-create-success": "başarıyla oluşturuldu!",
+  "messages-create-error": "oluşturulamadı!",
+  "messages-update-success": "başarıyla güncellendi!",
+  "messages-update-error": "güncellenemedi!",
+  "messages-new": "Yeni"
 }

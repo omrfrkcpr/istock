@@ -82,4 +82,32 @@ export const translations = {
       submitBtn: "products-form-submitBtn",
     },
   },
+  messages: {
+    login: {
+      success: "messages-login-success",
+      error: "messages-login-error",
+    },
+    register: {
+      success: "messages-register-success",
+      error: "messages-register-error",
+    },
+    logout: {
+      success: "messages-logout-success",
+      error: "messages-logout-error",
+    },
+    delete: {
+      confirm: "messages-delete-confirm",
+      success: "messages-delete-success",
+      error: "messages-delete-error",
+    },
+    create: {
+      success: "messages-create-success",
+      error: "messages-create-error",
+    },
+    update: {
+      success: "messages-update-success",
+      error: "messages-update-error",
+    },
+    new: "messages-new",
+  },
 };

@@ -10,8 +10,11 @@ import {
 } from "../features/stockSlice";
 import useAxios from "./useAxios";
 import { toastSuccessNotify } from "../helper/ToastNotify";
+import { useTranslation } from "react-i18next";
+import { translations } from "../locales/translations";
 
 const useStockCall = () => {
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const axiosWithToken = useAxios();
 
@@ -34,14 +37,19 @@ const useStockCall = () => {
   };
 
   const deleteStockData = async (url, id) => {
-    if (confirm("Are you sure you want to delete?")) {
+    if (confirm(t(translations.messages.delete.confirm))) {
       dispatch(fetchStart());
       try {
         await axiosWithToken.delete(`${url}/${id}`);
-        toastSuccessNotify(`${singularize(url)} successfully deleted`);
+        toastSuccessNotify(
+          `${singularize(url)} ${t(translations.messages.delete.success)}`
+        );
       } catch (error) {
         console.log(error);
         dispatch(fetchFail());
+        toastSuccessNotify(
+          `${singularize(url)} ${t(translations.messages.delete.error)}`
+        );
       } finally {
         getStockData(url);
       }
@@ -53,10 +61,19 @@ const useStockCall = () => {
     try {
       await axiosWithToken.post(`${url}`, info);
       getStockData(url); // only if we post it successfully
-      toastSuccessNotify(`New ${singularize(url)} successfully created`);
+      toastSuccessNotify(
+        `${t(translations.messages.new)} ${singularize(url)} ${t(
+          translations.messages.create.success
+        )}`
+      );
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
+      toastSuccessNotify(
+        `${t(translations.messages.new)} ${singularize(url)} ${t(
+          translations.messages.create.error
+        )}`
+      );
     }
   };
 
@@ -64,10 +81,15 @@ const useStockCall = () => {
     dispatch(fetchStart());
     try {
       await axiosWithToken.put(`${url}/${info._id}`, info);
-      toastSuccessNotify(`${singularize(url)} successfully updated`);
+      toastSuccessNotify(
+        `${singularize(url)} ${t(translations.messages.update.success)}`
+      );
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
+      toastSuccessNotify(
+        `${singularize(url)} ${t(translations.messages.update.error)}`
+      );
     } finally {
       getStockData(url);
     }

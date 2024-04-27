@@ -53,5 +53,19 @@
   "products-form-label3": "Product Name",
   "products-form-label4": "Stock",
   "products-form-label5": "Actions",
-  "products-form-submitBtn": "SUBMIT PRODUCT"
+  "products-form-submitBtn": "SUBMIT PRODUCT",
+  "messages-login-success": "You're successfully logged in!",
+  "messages-login-error": "Login can not be performed",
+  "messages-logout-success": "You're successfully logged out!",
+  "messages-logout-error": "Logout can not be performed",
+  "messages-register-success": "You're successfully registered!",
+  "messages-register-error": "Register can not be performed",
+  "messages-delete-confirm": "Are you sure you want to delete",
+  "messages-delete-success": "is successfully deleted!",
+  "messages-delete-error": "could not be deleted!",
+  "messages-create-success": "is successfully created!",
+  "messages-create-error": "could not be created!",
+  "messages-update-success": "is successfully updated!",
+  "messages-update-error": "could not be updated!",
+  "messages-new": "New"
 }

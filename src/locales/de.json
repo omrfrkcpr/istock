@@ -53,5 +53,19 @@
   "products-form-label3": "Produktname",
   "products-form-label4": "Lager",
   "products-form-label5": "Aktionen",
-  "products-form-submitBtn": "PRODUKT ERSTELLEN"
+  "products-form-submitBtn": "PRODUKT ERSTELLEN",
+  "messages-login-success": "Sie haben sich erfolgreich angemeldet!",
+  "messages-login-error": "Anmeldung konnte nicht durchgeführt werden",
+  "messages-logout-success": "Sie haben sich erfolgreich abgemeldet!",
+  "messages-logout-error": "Abmeldung konnte nicht durchgeführt werden",
+  "messages-register-success": "Sie haben sich erfolgreich registriert!",
+  "messages-register-error": "Registrierung konnte nicht durchgeführt werden",
+  "messages-delete-confirm": "Möchten Sie es wirklich löschen?",
+  "messages-delete-success": "ist erfolgreich gelöscht!",
+  "messages-delete-error": "konnte nicht gelöscht werden!",
+  "messages-create-success": "ist erfolgreich erstellt!",
+  "messages-create-error": "konnte nicht erstellt werden!",
+  "messages-update-success": "ist erfolgreich aktualisiert!",
+  "messages-update-error": "konnte nicht aktualisiert werden!",
+  "messages-new": "Neu"
 }

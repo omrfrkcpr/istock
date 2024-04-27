@@ -10,10 +10,13 @@ import {
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+import { useTranslation } from "react-i18next";
+import { translations } from "../locales/translations";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const useAuthCall = () => {
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((store) => store.auth);
@@ -24,12 +27,12 @@ const useAuthCall = () => {
       const { data } = await axios.post(`${BASE_URL}users/`, userInfo);
       console.log(data);
       dispatch(registerSuccess(data));
-      toastSuccessNotify("You're successfully registered!");
+      toastSuccessNotify(t(translations.messages.register.success));
       navigate("/");
     } catch (error) {
       dispatch(fetchFail());
       console.log(error);
-      toastErrorNotify("Register can not be performed");
+      toastErrorNotify(t(translations.messages.register.error));
     }
   };
 
@@ -38,12 +41,12 @@ const useAuthCall = () => {
     try {
       const { data } = await axios.post(`${BASE_URL}auth/login/`, userInfo);
       dispatch(loginSuccess(data));
-      toastSuccessNotify("You're successfully logged in!");
+      toastSuccessNotify(t(translations.messages.login.success));
       navigate("/stock");
     } catch (error) {
       dispatch(fetchFail());
       console.log(error);
-      toastErrorNotify("Login can not be performed");
+      toastErrorNotify(t(translations.messages.login.error));
     }
   };
 
@@ -56,12 +59,12 @@ const useAuthCall = () => {
         },
       });
       dispatch(logoutSuccess());
-      toastSuccessNotify("You're logged out!");
+      toastSuccessNotify(t(translations.messages.logout.success));
       navigate("/");
     } catch (error) {
       dispatch(fetchFail());
       console.log(error);
-      toastErrorNotify("Logout can not be performed");
+      toastErrorNotify(t(translations.messages.logout.error));
     }
   };
 
