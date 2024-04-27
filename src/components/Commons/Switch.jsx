@@ -10,6 +10,7 @@ const Switch = () => {
   const handleLanguageChange = async (e) => {
     const selectedLanguage = e.target.value;
     await i18n.changeLanguage(selectedLanguage);
+    localStorage.setItem("i18nextLng", selectedLanguage);
   };
 
   return (

@@ -16,9 +16,16 @@ const resources = {
   },
 };
 
-i18n.use(initReactI18next).init({
-  lng: "en",
-  resources,
-});
+const lng = localStorage.getItem("i18nextLng") || "en";
+
+i18n
+  .use(initReactI18next)
+  .init({
+    lng,
+    resources,
+  })
+  .then(() => {
+    localStorage.setItem("i18nextLng", i18n.language);
+  });
 
 export default i18n;
