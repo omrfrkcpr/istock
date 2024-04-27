@@ -9,8 +9,11 @@ import PageHeader from "../components/Commons/PageHeader";
 import BrandForm from "../components/Forms/BrandForm";
 import useStockCall from "../hooks/useStockCall";
 import StockModal from "../components/Commons/StockModal";
+import { useTranslation } from "react-i18next";
+import { translations } from "../locales/translations";
 
 const Brands = () => {
+  const { t, i18n } = useTranslation();
   const { getStockData } = useStockCall();
   const { brands, loading } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
@@ -26,16 +29,20 @@ const Brands = () => {
     name: "",
     image: "",
   });
-  console.log("brands:", brands);
-  console.log("brands:", initialState);
+  // console.log("brands:", brands);
+  // console.log("brands:", initialState);
   useEffect(() => {
     getStockData("brands");
   }, []);
 
   return (
     <Container maxWidth={"xl"}>
-      <PageHeader text="Brands" />
-      <MyButton variant="contained" onClick={handleOpen} title="New Brand" />
+      <PageHeader text={t(translations.brands.title)} />
+      <MyButton
+        variant="contained"
+        onClick={handleOpen}
+        title={t(translations.brands.button)}
+      />
       <Grid container spacing={2} mt={3}>
         {loading ? (
           <img src={loadingGif} alt="loading..." height={500} />

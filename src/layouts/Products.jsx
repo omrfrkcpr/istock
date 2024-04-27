@@ -7,8 +7,11 @@ import StockModal from "../components/Commons/StockModal";
 import ProductForm from "../components/Forms/ProductForm";
 import ProductTable from "../components/Tables/ProductTable";
 import useStockCall from "../hooks/useStockCall";
+import { useTranslation } from "react-i18next";
+import { translations } from "../locales/translations";
 
 const Products = () => {
+  const { t, i18n } = useTranslation();
   const { getProCatBrand } = useStockCall();
   const { products } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
@@ -24,8 +27,12 @@ const Products = () => {
 
   return (
     <Container maxWidth={"xl"}>
-      <PageHeader text="Products" />
-      <MyButton variant="contained" onClick={handleOpen} title="New Product" />
+      <PageHeader text={t(translations.products.title)} />
+      <MyButton
+        variant="contained"
+        onClick={handleOpen}
+        title={t(translations.products.button)}
+      />
       {open && (
         <StockModal open={open} handleClose={handleClose}>
           <ProductForm handleClose={handleClose} />

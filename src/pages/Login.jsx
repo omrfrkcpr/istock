@@ -11,9 +11,13 @@ import useAuthCall from "../hooks/useAuthCall";
 import LoginForm from "../components/Forms/LoginForm";
 import { SignupSchema } from "../components/Forms/LoginForm";
 import background from "../assets/background.jpg";
+import Switch from "../components/Commons/Switch";
+import { useTranslation } from "react-i18next";
+import { translations } from "../locales/translations";
 
 const Login = () => {
   const { login } = useAuthCall();
+  const { t, i18n } = useTranslation();
 
   return (
     <Box
@@ -36,6 +40,20 @@ const Login = () => {
         }}
       >
         <AuthHeader />
+        <div
+          style={{
+            position: "absolute",
+            top: "1rem",
+            right: "1rem",
+            backgroundColor: "white",
+            borderRadius: "10px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Switch />
+        </div>
 
         <Grid
           item
@@ -55,7 +73,7 @@ const Login = () => {
           <AuthImage image={image} />
 
           <Typography variant="h5" align="center" color="black">
-            SIGN IN
+            {t(translations.loginForm.title)}
           </Typography>
 
           <Formik
@@ -74,7 +92,7 @@ const Login = () => {
           ></Formik>
 
           <Box sx={{ textAlign: "center", mt: 2, color: "black" }}>
-            <Link to="/register">Don't have an account? Sign Up</Link>
+            <Link to="/register">{t(translations.loginForm.link)}</Link>
           </Box>
         </Grid>
       </Grid>

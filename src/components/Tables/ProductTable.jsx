@@ -6,6 +6,8 @@ import useStockCall from "../../hooks/useStockCall";
 import { GridActionsCellItem } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { deleteBtnStyle } from "../../styles/globalStyle";
+import { useTranslation } from "react-i18next";
+import { translations } from "../../locales/translations";
 
 function getRowId(row) {
   console.log(row);
@@ -13,6 +15,7 @@ function getRowId(row) {
 }
 
 export default function ProductTable() {
+  const { t, i18n } = useTranslation();
   const { products } = useSelector((state) => state.stock);
   const { deleteStockData } = useStockCall();
 
@@ -27,7 +30,7 @@ export default function ProductTable() {
     },
     {
       field: "categoryId",
-      headerName: "Category",
+      headerName: t(translations.products.form.label1),
       minWidth: 150,
       editable: false,
       headerAlign: "center",
@@ -40,7 +43,7 @@ export default function ProductTable() {
     },
     {
       field: "brandId",
-      headerName: "Brand",
+      headerName: t(translations.products.form.label2),
       minWidth: 150,
       // editable: false,
       headerAlign: "center",
@@ -53,7 +56,7 @@ export default function ProductTable() {
     },
     {
       field: "name",
-      headerName: "Name",
+      headerName: t(translations.products.form.label3),
       type: "text",
       minWidth: 150,
       headerAlign: "center",
@@ -62,7 +65,7 @@ export default function ProductTable() {
     },
     {
       field: "quantity",
-      headerName: "Stock",
+      headerName: t(translations.products.form.label4),
       type: "number",
       minWidth: 150,
       headerAlign: "center",
@@ -71,7 +74,7 @@ export default function ProductTable() {
     },
     {
       field: "actions",
-      headerName: "Actions",
+      headerName: t(translations.products.form.label5),
       description: "This column has a value getter and is not sortable.",
       sortable: false,
       minWidth: 40,

@@ -6,6 +6,8 @@ import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import FormTextField from "../../components/TextFields/FormTextField";
+import { useTranslation } from "react-i18next";
+import { translations } from "../../locales/translations";
 
 export const SignupSchema = Yup.object().shape({
   username: Yup.string().min(3).max(15).required("Required!"),
@@ -36,22 +38,35 @@ const RegisterForm = ({
   handleBlur,
   isSubmitting,
 }) => {
+  const { t, i18n } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const registerFormFields = [
-    { name: "username", label: "Username", type: "text" },
-    { name: "firstName", label: "First Name", type: "text" },
-    { name: "lastName", label: "Last Name", type: "text" },
-    { name: "email", label: "Email", type: "email" },
+    {
+      name: "username",
+      label: t(translations.registerForm.username),
+      type: "text",
+    },
+    {
+      name: "firstName",
+      label: t(translations.registerForm.firstName),
+      type: "text",
+    },
+    {
+      name: "lastName",
+      label: t(translations.registerForm.lastName),
+      type: "text",
+    },
+    { name: "email", label: t(translations.registerForm.email), type: "email" },
     {
       name: "password",
-      label: "Password",
+      label: t(translations.registerForm.password),
       type: `${showPassword ? "text" : "password"}`,
     },
     {
       name: "confirmPassword",
-      label: "Confirm Password",
+      label: t(translations.registerForm.confirm),
       type: `${showConfirmPassword ? "text" : "password"}`,
     },
   ];
@@ -142,7 +157,9 @@ const RegisterForm = ({
             size="large"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Loading..." : "Sign Up"}
+            {isSubmitting
+              ? t(translations.registerForm.loading)
+              : t(translations.registerForm.title)}
           </Button>
         </Box>
       </Form>

@@ -8,8 +8,11 @@ import PageHeader from "../components/Commons/PageHeader";
 import StockModal from "../components/Commons/StockModal";
 import FirmForm from "../components/Forms/FirmForm";
 import useStockCall from "../hooks/useStockCall";
+import { useTranslation } from "react-i18next";
+import { translations } from "../locales/translations";
 
 const Firms = () => {
+  const { t, i18n } = useTranslation();
   const { getStockData } = useStockCall();
   const { firms } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
@@ -31,16 +34,20 @@ const Firms = () => {
     address: "",
     image: "",
   });
-  console.log("firms:", firms);
-  console.log("firms:", initialState);
+  // console.log("firms:", firms);
+  // console.log("firms:", initialState);
   useEffect(() => {
     getStockData("firms");
   }, []);
 
   return (
     <Container maxWidth={"xl"}>
-      <PageHeader text="Firms" />
-      <MyButton variant="contained" onClick={handleOpen} title="New Firm" />
+      <PageHeader text={t(translations.firms.title)} />
+      <MyButton
+        variant="contained"
+        onClick={handleOpen}
+        title={t(translations.firms.button)}
+      />
       <Grid container spacing={2} mt={3}>
         {firms.map((firm) => (
           <Grid item xs={12} md={6} lg={4} xl={3} key={firm._id}>

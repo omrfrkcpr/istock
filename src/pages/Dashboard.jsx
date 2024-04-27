@@ -153,7 +153,7 @@ function Dashboard(props) {
     position: "fixed",
     top: isSmallScreen ? "9px" : "13px",
     padding: "7px",
-    [isSmallScreen ? "left" : "right"]: isSmallScreen ? "45px" : "135px",
+    [isSmallScreen ? "left" : "right"]: isSmallScreen ? "45px" : "115px",
     // border: `.5px solid ${mode === "light" ? "#abba9b" : "#6B6B6B"}`,
   };
 

@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import FormTextField from "../../components/TextFields/FormTextField";
+import { useTranslation } from "react-i18next";
+import { translations } from "../../locales/translations";
 
 export const SignupSchema = Yup.object().shape({
   username: Yup.string().required("Required!"),
@@ -14,14 +16,19 @@ export const SignupSchema = Yup.object().shape({
 });
 
 const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
+  const { t, i18n } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
   const { loading } = useSelector((state) => state.auth);
 
   const loginFormFields = [
-    { name: "username", label: "Username", type: "text" },
+    {
+      name: "username",
+      label: t(translations.loginForm.username),
+      type: "text",
+    },
     {
       name: "password",
-      label: "Password",
+      label: t(translations.loginForm.password),
       type: `${showPassword ? "text" : "password"}`,
     },
   ];
@@ -82,7 +89,7 @@ const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
               color="success"
               size="large"
             >
-              Sign In
+              {t(translations.loginForm.title)}
             </Button>
           ) : (
             <Button

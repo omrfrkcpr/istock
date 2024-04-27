@@ -6,15 +6,18 @@ import { useSelector } from "react-redux";
 import useStockCall from "../../hooks/useStockCall";
 import { deleteBtnStyle, editBtnStyle } from "../../styles/globalStyle";
 import DataTable from "../Commons/DataTable";
+import { useTranslation } from "react-i18next";
+import { translations } from "../../locales/translations";
 
 const PurchaseTable = ({ handleOpen, setInitialState }) => {
+  const { t, i18n } = useTranslation();
   const { purchases } = useSelector((state) => state.stock);
   const { deleteStockData } = useStockCall();
 
   const columns = [
     {
       field: "createdAt",
-      headerName: "Date",
+      headerName: t(translations.purchases.table.col1),
       minWidth: 150,
       headerAlign: "center",
       align: "center",
@@ -24,7 +27,7 @@ const PurchaseTable = ({ handleOpen, setInitialState }) => {
     },
     {
       field: "firmId",
-      headerName: "Firm",
+      headerName: t(translations.purchases.table.col2),
       flex: 1,
       minWidth: 100,
       headerAlign: "center",
@@ -36,7 +39,7 @@ const PurchaseTable = ({ handleOpen, setInitialState }) => {
 
     {
       field: "brandId",
-      headerName: "Brand",
+      headerName: t(translations.purchases.table.col3),
       flex: 1,
       minWidth: 100,
       headerAlign: "center",
@@ -47,7 +50,7 @@ const PurchaseTable = ({ handleOpen, setInitialState }) => {
     },
     {
       field: "productID",
-      headerName: "Product",
+      headerName: t(translations.purchases.table.col4),
       flex: 1,
       minWidth: 100,
       headerAlign: "center",
@@ -58,28 +61,28 @@ const PurchaseTable = ({ handleOpen, setInitialState }) => {
     },
     {
       field: "quantity",
-      headerName: "Quantity",
+      headerName: t(translations.purchases.table.col5),
       minWidth: 50,
       headerAlign: "center",
       align: "center",
     },
     {
       field: "price",
-      headerName: "Price",
+      headerName: t(translations.purchases.table.col6),
       minWidth: 50,
       headerAlign: "center",
       align: "center",
     },
     {
       field: "amount",
-      headerName: "Amount",
+      headerName: t(translations.purchases.table.col7),
       minWidth: 50,
       headerAlign: "center",
       align: "center",
     },
     {
       field: "actions",
-      headerName: "Actions",
+      headerName: t(translations.purchases.table.col8),
       minWidth: 40,
       headerAlign: "center",
       align: "center",

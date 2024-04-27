@@ -4,11 +4,46 @@ import useStockCall from "../../hooks/useStockCall";
 import { flexColumn } from "../../styles/globalStyle";
 import MyButton from "../Commons/MyButton";
 import MyTextField from "../TextFields/MyTextField";
-import { firmFields } from "../../helper/formFields";
+import { useTranslation } from "react-i18next";
+import { translations } from "../../locales/translations";
 
 export default function FirmForm({ open, handleClose, initialState }) {
+  const { t, i18n } = useTranslation();
   const [info, setInfo] = React.useState(initialState);
   const { postStockData, putStockData } = useStockCall();
+
+  const firmFields = [
+    {
+      label: t(translations.firms.form.label1),
+      name: "name",
+      id: "name",
+      type: "text",
+    },
+    {
+      label: t(translations.firms.form.label2),
+      name: "address",
+      id: "address",
+      type: "text",
+    },
+    {
+      label: t(translations.firms.form.label3),
+      name: "phone",
+      id: "phone",
+      type: "text",
+    },
+    {
+      label: t(translations.firms.form.label4),
+      name: "email",
+      id: "email",
+      type: "email",
+    },
+    {
+      label: t(translations.firms.form.label5),
+      name: "image",
+      id: "image",
+      type: "text",
+    },
+  ];
 
   const handleChange = (e) => {
     console.log(e.target.id);
@@ -48,7 +83,11 @@ export default function FirmForm({ open, handleClose, initialState }) {
       <MyButton
         type="submit"
         variant="contained"
-        title={info._id ? "Update Firm" : "Submit Firm"}
+        title={
+          info._id
+            ? t(translations.firms.form.editBtn)
+            : t(translations.firms.form.submitBtn)
+        }
       />
     </Box>
   );

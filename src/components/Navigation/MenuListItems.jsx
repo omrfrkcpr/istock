@@ -8,41 +8,10 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Switch from "../../components/Commons/Switch";
 import logo from "../../../public/assets/logo.png";
+import { useTranslation } from "react-i18next";
+import { translations } from "../../locales/translations";
 
 const getIcon = (name) => `/assets/navbar/${name}.svg`;
-
-const links = [
-  {
-    title: "Dashboard",
-    url: "/stock",
-    icon: getIcon("ic_analytics"),
-  },
-  {
-    title: "Purchases",
-    url: "/stock/purchases",
-    icon: getIcon("purchase"),
-  },
-  {
-    title: "Sales",
-    url: "/stock/sales",
-    icon: getIcon("sales"),
-  },
-  {
-    title: "Firms",
-    url: "/stock/firms",
-    icon: getIcon("firms"),
-  },
-  {
-    title: "Brands",
-    url: "/stock/brands",
-    icon: getIcon("brand"),
-  },
-  {
-    title: "Products",
-    url: "/stock/products",
-    icon: getIcon("ic_cart"),
-  },
-];
 
 const iconStyle = {
   color: "secondary.main",
@@ -67,6 +36,40 @@ const selectedStyle = {
 const MenuListItems = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { t, i18n } = useTranslation();
+
+  const links = [
+    {
+      title: t(translations.dashboard.title),
+      url: "/stock",
+      icon: getIcon("ic_analytics"),
+    },
+    {
+      title: t(translations.purchases.title),
+      url: "/stock/purchases",
+      icon: getIcon("purchase"),
+    },
+    {
+      title: t(translations.sales.title),
+      url: "/stock/sales",
+      icon: getIcon("sales"),
+    },
+    {
+      title: t(translations.firms.title),
+      url: "/stock/firms",
+      icon: getIcon("firms"),
+    },
+    {
+      title: t(translations.brands.title),
+      url: "/stock/brands",
+      icon: getIcon("brand"),
+    },
+    {
+      title: t(translations.products.title),
+      url: "/stock/products",
+      icon: getIcon("ic_cart"),
+    },
+  ];
 
   return (
     <div>

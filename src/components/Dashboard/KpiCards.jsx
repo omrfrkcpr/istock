@@ -1,6 +1,8 @@
 // 'use client';
 import { Card } from "@tremor/react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { translations } from "../../locales/translations";
 
 const getTotals = (arr) => {
   return arr.reduce((acc, item) => acc + item.amount, 0);
@@ -11,6 +13,7 @@ const formatNumber = (number) => {
 };
 
 export default function KpiCards() {
+  const { t, i18n } = useTranslation();
   const { sales, purchases } = useSelector((state) => state.stock);
 
   const totalSales = getTotals(sales);
@@ -18,19 +21,19 @@ export default function KpiCards() {
 
   const data = [
     {
-      name: "Sales",
+      name: t(translations.sales.title),
       value: `€ ${totalSales}`,
       //   change: '-1.2%',
       //   changeType: 'negative',
       color: "indigo",
     },
     {
-      name: "Cash",
+      name: t(translations.dashboard.cash),
       value: `€ ${totalSales - totalPurchases}`,
       color: "amber",
     },
     {
-      name: "Purchases",
+      name: t(translations.purchases.title),
       value: `€ ${totalPurchases}`,
       color: "rose",
     },

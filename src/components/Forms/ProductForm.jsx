@@ -6,9 +6,11 @@ import { flexColumn } from "../../styles/globalStyle";
 import MyButton from "../Commons/MyButton";
 import MyTextField from "../TextFields/MyTextField";
 import SelectControl from "../Commons/SelectControl";
-import { productFields } from "../../helper/formFields";
+import { useTranslation } from "react-i18next";
+import { translations } from "../../locales/translations";
 
 export default function ProductForm({ handleClose }) {
+  const { t, i18n } = useTranslation();
   const [info, setInfo] = React.useState({
     categoryId: "",
     brandId: "",
@@ -16,6 +18,15 @@ export default function ProductForm({ handleClose }) {
   });
   const { postStockData } = useStockCall();
   const { categories, brands } = useSelector((state) => state.stock);
+
+  const productFields = [
+    {
+      label: t(translations.products.form.label3),
+      name: "name",
+      id: "name",
+      type: "text",
+    },
+  ];
 
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
@@ -30,14 +41,14 @@ export default function ProductForm({ handleClose }) {
   return (
     <Box component="form" onSubmit={handleSubmit} sx={flexColumn}>
       <SelectControl
-        label="Category"
+        label={t(translations.products.form.label1)}
         name="categoryId"
         value={info.categoryId}
         items={categories}
         onChange={handleChange}
       />
       <SelectControl
-        label="Brand"
+        label={t(translations.products.form.label2)}
         name="brandId"
         value={info.brandId}
         items={brands}
@@ -51,7 +62,11 @@ export default function ProductForm({ handleClose }) {
           {...item}
         />
       ))}
-      <MyButton type="submit" variant="contained" title={"Submit Product"} />
+      <MyButton
+        type="submit"
+        variant="contained"
+        title={t(translations.brands.form.submitBtn)}
+      />
     </Box>
   );
 }

@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 const Switch = () => {
   const { t, i18n } = useTranslation();
 
-  console.log(i18n.language);
+  // console.log(i18n.language);
 
   const handleLanguageChange = async (e) => {
     const selectedLanguage = e.target.value;
@@ -21,6 +21,7 @@ const Switch = () => {
           display: "flex",
           alignItems: "center",
           padding: "0 0.5rem",
+          fontSize: "0.7rem",
         },
       }}
     >
@@ -33,11 +34,11 @@ const Switch = () => {
         }}
       >
         <img
-          src="https://flagsapi.com/US/flat/32.png"
+          src="https://flagsapi.com/US/flat/24.png"
           alt="en"
-          style={{ marginRight: "10px" }}
+          style={{ marginRight: "5px" }}
         />
-        <span>EN</span>
+        <span style={{ fontSize: ".8rem" }}>EN</span>
       </MenuItem>
       <MenuItem
         value="de"
@@ -48,11 +49,11 @@ const Switch = () => {
         }}
       >
         <img
-          src="https://flagsapi.com/DE/flat/32.png"
+          src="https://flagsapi.com/DE/flat/24.png"
           alt="de"
-          style={{ marginRight: "10px" }}
+          style={{ marginRight: "5px" }}
         />
-        <span>DE</span>
+        <span style={{ fontSize: ".8rem" }}>DE</span>
       </MenuItem>
       <MenuItem
         value="tr"
@@ -63,11 +64,11 @@ const Switch = () => {
         }}
       >
         <img
-          src="https://flagsapi.com/TR/flat/32.png"
+          src="https://flagsapi.com/TR/flat/24.png"
           alt="tr"
-          style={{ marginRight: "10px" }}
+          style={{ marginRight: "5px" }}
         />
-        <span>TR</span>
+        <span style={{ fontSize: ".8rem" }}>TR</span>
       </MenuItem>
     </Select>
   );

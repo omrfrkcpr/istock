@@ -42,5 +42,5 @@ export const containerStyle = {
   justifyContent: "space-between",
   textAlign: "right",
   gap: "30px",
-  width: "295px",
+  width: "275px",
 };

@@ -20,7 +20,7 @@ const AuthHeader = () => {
         }}
         color="white"
       >
-        Stock Management App
+        IStock
       </Typography>
     </Grid>
   );

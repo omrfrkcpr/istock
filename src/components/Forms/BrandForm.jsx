@@ -4,11 +4,30 @@ import useStockCall from "../../hooks/useStockCall";
 import { flexColumn } from "../../styles/globalStyle";
 import MyButton from "../Commons/MyButton";
 import MyTextField from "../TextFields/MyTextField";
-import { brandFields } from "../../helper/formFields";
+import { useTranslation } from "react-i18next";
+import { translations } from "../../locales/translations";
 
 export default function BrandForm({ open, handleClose, initialState }) {
+  const { t, i18n } = useTranslation();
   const [info, setInfo] = React.useState(initialState);
   const { postStockData, putStockData } = useStockCall();
+
+  const brandFields = [
+    {
+      label: t(translations.brands.form.label1),
+      name: "name",
+      id: "name",
+      type: "text",
+      required: true,
+    },
+    {
+      label: t(translations.brands.form.label2),
+      name: "image",
+      id: "image",
+      type: "url",
+      required: false,
+    },
+  ];
 
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
@@ -39,7 +58,11 @@ export default function BrandForm({ open, handleClose, initialState }) {
         type="submit"
         variant="contained"
         size="large"
-        title={info._id ? "Update Brand" : "Submit Brand"}
+        title={
+          info._id
+            ? t(translations.brands.form.editBtn)
+            : t(translations.brands.form.submitBtn)
+        }
       />
     </Box>
   );
