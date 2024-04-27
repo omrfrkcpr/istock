@@ -107,8 +107,9 @@ const getDesignTokens = (mode) => ({
 
 function Dashboard(props) {
   const { t, i18n } = useTranslation();
+  const savedMode = localStorage.getItem("mode") || "light";
 
-  const [mode, setMode] = React.useState("light");
+  const [mode, setMode] = React.useState(savedMode);
   const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -128,6 +129,10 @@ function Dashboard(props) {
     }),
     []
   );
+
+  React.useEffect(() => {
+    localStorage.setItem("mode", mode);
+  }, [mode]);
 
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -197,7 +202,7 @@ function Dashboard(props) {
                   xs: "center",
                   sm: "left",
                 },
-                marginLeft: { xs: "40px", sm: "0px" },
+                marginLeft: { xs: "30%", sm: "0px" },
               }}
             >
               <span

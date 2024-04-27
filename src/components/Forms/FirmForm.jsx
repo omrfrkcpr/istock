@@ -32,12 +32,6 @@ export default function FirmForm({ open, handleClose, initialState }) {
       type: "text",
     },
     {
-      label: t(translations.firms.form.label4),
-      name: "email",
-      id: "email",
-      type: "email",
-    },
-    {
       label: t(translations.firms.form.label5),
       name: "image",
       id: "image",

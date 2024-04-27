@@ -22,7 +22,6 @@ const Firms = () => {
     setInitialState({
       name: "",
       phone: "",
-      email: "",
       address: "",
       image: "",
     });
@@ -30,7 +29,6 @@ const Firms = () => {
   const [initialState, setInitialState] = useState({
     name: "",
     phone: "",
-    email: "",
     address: "",
     image: "",
   });

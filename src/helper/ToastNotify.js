@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const toastWarnNotify = msg => {
+export const toastWarnNotify = (msg) => {
   toast.warn(msg, {
     autoClose: 1000,
     hideProgressBar: false,
@@ -9,10 +9,11 @@ export const toastWarnNotify = msg => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
+    theme: "colored",
   });
 };
 
-export const toastSuccessNotify = msg => {
+export const toastSuccessNotify = (msg) => {
   toast.success(msg, {
     autoClose: 1500,
     hideProgressBar: false,
@@ -20,10 +21,11 @@ export const toastSuccessNotify = msg => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
+    theme: "colored",
   });
 };
 
-export const toastErrorNotify = msg => {
+export const toastErrorNotify = (msg) => {
   toast.error(msg, {
     autoClose: 2000,
     hideProgressBar: false,
@@ -31,5 +33,6 @@ export const toastErrorNotify = msg => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
+    theme: "colored",
   });
 };

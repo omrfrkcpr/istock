@@ -13,7 +13,6 @@ export default function FirmCard({
   name,
   address,
   image,
-  email,
   phone,
   handleOpen,
   setInitialState,
@@ -47,9 +46,6 @@ export default function FirmCard({
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           Phone : {phone}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Email : {email}
         </Typography>
       </CardContent>
 
