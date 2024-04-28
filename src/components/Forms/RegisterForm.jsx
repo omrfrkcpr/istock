@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import { Form } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
@@ -8,6 +7,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import FormTextField from "../../components/TextFields/FormTextField";
 import { useTranslation } from "react-i18next";
 import { translations } from "../../locales/translations";
+import { Button } from "@mui/material";
 
 export const SignupSchema = Yup.object().shape({
   username: Yup.string().min(3).max(15).required("Required!"),

@@ -11,6 +11,7 @@ import useStockCall from "../hooks/useStockCall";
 import StockModal from "../components/Commons/StockModal";
 import { useTranslation } from "react-i18next";
 import { translations } from "../locales/translations";
+import { Box } from "@mui/material";
 
 const Brands = () => {
   const { t, i18n } = useTranslation();
@@ -38,11 +39,14 @@ const Brands = () => {
   return (
     <Container maxWidth={"xl"}>
       <PageHeader text={t(translations.brands.title)} />
-      <MyButton
-        variant="contained"
-        onClick={handleOpen}
-        title={t(translations.brands.button)}
-      />
+      <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+        <MyButton
+          variant="contained"
+          onClick={handleOpen}
+          title={t(translations.brands.button)}
+        />
+      </Box>
+
       <Grid container spacing={2} mt={3}>
         {loading ? (
           <img src={loadingGif} alt="loading..." height={500} />

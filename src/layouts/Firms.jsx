@@ -10,6 +10,7 @@ import FirmForm from "../components/Forms/FirmForm";
 import useStockCall from "../hooks/useStockCall";
 import { useTranslation } from "react-i18next";
 import { translations } from "../locales/translations";
+import { Box } from "@mui/material";
 
 const Firms = () => {
   const { t, i18n } = useTranslation();
@@ -41,11 +42,14 @@ const Firms = () => {
   return (
     <Container maxWidth={"xl"}>
       <PageHeader text={t(translations.firms.title)} />
-      <MyButton
-        variant="contained"
-        onClick={handleOpen}
-        title={t(translations.firms.button)}
-      />
+      <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+        <MyButton
+          variant="contained"
+          onClick={handleOpen}
+          title={t(translations.firms.button)}
+        />
+      </Box>
+
       <Grid container spacing={2} mt={3}>
         {firms.map((firm) => (
           <Grid item xs={12} md={6} lg={4} xl={3} key={firm._id}>

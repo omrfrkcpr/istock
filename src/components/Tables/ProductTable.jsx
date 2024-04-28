@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import { translations } from "../../locales/translations";
 
 function getRowId(row) {
-  console.log(row);
+  // console.log(row);
   return row._id;
 }
 
