@@ -13,10 +13,13 @@ import background from "../assets/background.jpg";
 import Switch from "../components/Commons/Switch";
 import { useTranslation } from "react-i18next";
 import { translations } from "../locales/translations";
+import HomeIcon from "@mui/icons-material/Home";
+// import { useNavigation } from "react-router-dom";
 
 const Register = () => {
   const { register } = useAuthCall();
   const { t, i18n } = useTranslation();
+  // const navigate = useNavigation();
 
   return (
     <Box
@@ -41,11 +44,27 @@ const Register = () => {
           // pb: 10,
         }}
       >
+        <div className="absolute left-10 top-5">
+          <Link to="/">
+            <HomeIcon
+              sx={{
+                fontSize: "30px",
+                color: "white",
+                boxShadow: "2px 2px 10px black",
+                "&:hover": {
+                  color: "#476A7E",
+                  cursor: "pointer",
+                  backgroundColor: "white",
+                },
+              }}
+            />
+          </Link>
+        </div>
         <AuthHeader />
         <div
           style={{
             position: "absolute",
-            top: "1rem",
+            top: "1.4rem",
             right: "1rem",
             backgroundColor: "white",
             display: "flex",
@@ -93,8 +112,15 @@ const Register = () => {
             component={(props) => <RegisterForm {...props} />}
           ></Formik>
 
-          <Box sx={{ textAlign: "center", mt: 2, color: "black" }}>
-            <Link to="/">{t(translations.registerForm.link)}</Link>
+          <Box
+            sx={{
+              textAlign: "center",
+              mt: 2,
+              color: "#3a9cff",
+              "&:hover": { textDecoration: "underline", opacity: "0.5" },
+            }}
+          >
+            <Link to="/login">{t(translations.registerForm.link)}</Link>
           </Box>
         </Grid>
       </Grid>

@@ -28,7 +28,7 @@ const useAuthCall = () => {
       console.log(data);
       dispatch(registerSuccess(data));
       toastSuccessNotify(t(translations.messages.register.success));
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       dispatch(fetchFail());
       console.log(error);

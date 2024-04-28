@@ -91,7 +91,14 @@ const Login = () => {
             component={(props) => <LoginForm {...props} />}
           ></Formik>
 
-          <Box sx={{ textAlign: "center", mt: 2, color: "black" }}>
+          <Box
+            sx={{
+              textAlign: "center",
+              mt: 2,
+              color: "#3a9cff",
+              "&:hover": { textDecoration: "underline", opacity: "0.5" },
+            }}
+          >
             <Link to="/register">{t(translations.loginForm.link)}</Link>
           </Box>
         </Grid>

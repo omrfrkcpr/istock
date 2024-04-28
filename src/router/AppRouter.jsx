@@ -10,13 +10,17 @@ import Products from "../layouts/Products";
 import Sales from "../layouts/Sales";
 import Purchases from "../layouts/Purchases";
 import Brands from "../layouts/Brands";
+import Main from "../pages/Main";
+import About from "../pages/About";
 
 const AppRouter = () => {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/stock" element={<PrivateRouter />}>
             {/* Nested routes in the stock route  */}
