@@ -3,8 +3,13 @@ import logo from "/assets/logo.png";
 import Switch from "../components/Commons/Switch";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
+import { useTranslation } from "react-i18next";
+import { translations } from "../locales/translations";
+import MailIcon from "@mui/icons-material/Mail";
 
 const About = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <section className="min-h-screen  bg-gradient-to-b from-orange-100 to-orange-300 flex flex-col justify-start items-center relative">
       <div className="absolute left-4 top-5 lg:left-6">
@@ -39,94 +44,75 @@ const About = () => {
       <div className="max-w-[90%] mx-auto mt-5">
         <img src={logo} alt="" className="w-[100px] mx-auto" />
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 text-center mt-8">
-          About
+          IStock
         </h1>
-        <p className="text-sm md:text-md lg:text-lg text-gray-800 mb-8">
-          iStock is a comprehensive stock management application designed to
-          streamline inventory processes for businesses. Upon registration,
-          users are greeted with a customizable dashboard where they can monitor
-          purchase and sale activities, as well as track their profit and loss
-          status. With the ability to input company and brand information, users
-          can effortlessly buy and sell products within the system. Every
-          transaction is editable and updateable, ensuring accuracy and
-          flexibility in inventory management.
-        </p>
-        <p className="text-sm md:text-md lg:text-lg text-gray-800 mb-8">
-          The application boasts a multilingual interface, allowing users to
-          seamlessly switch between Turkish and English languages. Additionally,
-          users have the option to personalize their experience with both dark
-          and light mode themes.
+        <p className="text-sm md:text-md lg:text-lg text-gray-800 mb-10">
+          {t(translations.aboutPage.info)}
         </p>
       </div>
 
       <div className="max-w-[90%] mx-auto">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 underline">
-          Documentation
+          {t(translations.aboutPage.doc.title)}
         </h1>
         <p className="text-sm md:text-md lg:text-lg text-gray-800 mb-8">
-          Getting Started to begin using iStock, simply sign up for an account
-          with your email address and create a password. Once logged in, you
-          will be directed to the dashboard where you can start managing your
-          inventory.
+          {t(translations.aboutPage.doc.info)}
         </p>
       </div>
 
       <div className="max-w-[90%] mx-auto">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 underline">
-          Dashboard Overview
+          {t(translations.aboutPage.overview.title)}
         </h1>
         <ul className="text-sm md:text-md lg:text-lg text-gray-800 mb-8">
           <li>
-            <i>Purchase and Sale Tracking:</i> Monitor all buying and selling
-            activities in real-time to stay informed about your inventory
-            movements.
+            <i>{t(translations.aboutPage.overview.label1)}</i>{" "}
+            {t(translations.aboutPage.overview.info1)}
           </li>
           <li>
-            <i>Profit and Loss Analysis:</i> Track your financial performance
-            with comprehensive profit and loss reports.
+            <i>{t(translations.aboutPage.overview.label2)}</i>{" "}
+            {t(translations.aboutPage.overview.info2)}
           </li>
           <li>
-            <i>Company and Brand Management:</i> Input relevant company and
-            brand details to facilitate efficient product management.
+            <i>{t(translations.aboutPage.overview.label3)}</i>{" "}
+            {t(translations.aboutPage.overview.info3)}
           </li>
           <li>
-            <i>Transaction Editing:</i> Easily edit and update any transaction
-            to maintain accurate inventory records.
+            <i>{t(translations.aboutPage.overview.label4)}</i>{" "}
+            {t(translations.aboutPage.overview.info4)}
           </li>
         </ul>
       </div>
 
       <div className="max-w-[90%] mx-auto">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 underline">
-          Multilingual Support
+          {t(translations.aboutPage.support.title)}
         </h1>
         <p className="text-sm md:text-md lg:text-lg text-gray-800 mb-8">
-          iStock offers support for English, German and Turkish languages,
-          allowing users to navigate the application in their preferred
-          language.
+          {t(translations.aboutPage.support.info)}
         </p>
       </div>
 
       <div className="max-w-[90%] mx-auto">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 underline">
-          Need Help?
+          {t(translations.aboutPage.help.title)}
         </h1>
         <p className="text-sm md:text-md lg:text-lg text-gray-800 mb-8">
-          For further assistance or inquiries, please refer to the Help section
-          within the application or contact me by email at{" "}
-          <a
-            href="mailto:omerrfarukcapur@email.com"
-            className="text-white underline font-semibold hover:text-gray-200"
-          >
-            omerrfarukcapur@email.com
-          </a>
-          .
+          {t(translations.aboutPage.help.info)}
+          <MailIcon
+            onClick={() => window.open("mailto:	omerrfarukcapur@gmail.com")}
+            sx={{
+              marginBottom: "0.2rem",
+              cursor: "pointer",
+              "&:hover": { color: "white" },
+            }}
+          />
         </p>
       </div>
 
       <div className="max-w-[90%] mx-auto mt-5 mb-10">
         <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-center">
-          Start optimizing your stock management processes today with iStock!
+          {t(translations.aboutPage.footer)}
         </h3>
       </div>
     </section>

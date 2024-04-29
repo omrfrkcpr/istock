@@ -6,6 +6,33 @@ export const translations = {
     login: "mainPage-login",
     register: "mainPage-register",
   },
+  aboutPage: {
+    info: "aboutPage-info",
+    doc: {
+      title: "aboutPage-doc-title",
+      info: "aboutPage-doc-info",
+    },
+    overview: {
+      title: "aboutPage-overview-title",
+      label1: "aboutPage-overview-label1",
+      info1: "aboutPage-overview-info1",
+      label2: "aboutPage-overview-label2",
+      info2: "aboutPage-overview-info2",
+      label3: "aboutPage-overview-label3",
+      info3: "aboutPage-overview-info3",
+      label4: "aboutPage-overview-label4",
+      info4: "aboutPage-overview-info4",
+    },
+    support: {
+      title: "aboutPage-support-title",
+      info: "aboutPage-support-info",
+    },
+    help: {
+      title: "aboutPage-help-title",
+      info: "aboutPage-help-info",
+    },
+    footer: "aboutPage-footer",
+  },
   loginForm: {
     title: "loginForm-title",
     username: "loginForm-username",
