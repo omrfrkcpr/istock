@@ -1,4 +1,9 @@
 {
+  "mainPage-info": "Dünya Çapında İşletmeleri Güçlendiriyoruz: IStock ile Ticarette Yeni Bir Boyut",
+  "mainPage-version": "Şu anda v1.0.2",
+  "mainPage-doc": "Dokümantasyon",
+  "mainPage-login": "Giriş Yap",
+  "mainPage-register": "Kayıt Ol",
   "loginForm-title": "GİRİŞ YAP",
   "loginForm-username": "Kullanıcı Adı",
   "loginForm-password": "Şifre",

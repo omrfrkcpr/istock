@@ -1,4 +1,11 @@
 export const translations = {
+  mainPage: {
+    info: "mainPage-info",
+    version: "mainPage-version",
+    doc: "mainPage-doc",
+    login: "mainPage-login",
+    register: "mainPage-register",
+  },
   loginForm: {
     title: "loginForm-title",
     username: "loginForm-username",

@@ -1,4 +1,9 @@
 {
+  "mainPage-info": "Unterstützung für Unternehmen weltweit: Eine neue Dimension des Handels mit IStock",
+  "mainPage-version": "Aktuell v1.0.2",
+  "mainPage-doc": "Dokumentation",
+  "mainPage-login": "Anmelden",
+  "mainPage-register": "Registrieren",
   "loginForm-title": "ANMELDEN",
   "loginForm-username": "Benutzername",
   "loginForm-password": "Passwort",

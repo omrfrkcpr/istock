@@ -1,4 +1,9 @@
 {
+  "mainPage-info": "Empowering Businesses Worldwide: A New Dimension in Commerce with IStock",
+  "mainPage-version": "Currently v1.0.2",
+  "mainPage-doc": "Documentation",
+  "mainPage-login": "Login",
+  "mainPage-register": "Sign Up",
   "loginForm-title": "SIGN IN",
   "loginForm-username": "Username",
   "loginForm-password": "Password",

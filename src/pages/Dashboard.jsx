@@ -56,7 +56,7 @@ const getDesignTokens = (mode) => ({
           // palette values for light mode
           primary: {
             main: "#3D8B5B",
-            secondary: "#969696",
+            secondary: "#aaaaaa",
           },
           secondary: {
             main: "#121212",
@@ -67,9 +67,9 @@ const getDesignTokens = (mode) => ({
             secondary: "#abba9b",
           },
           background: {
-            main: "#cde0ba",
-            secondary: "#59664b",
-            tertiary: "#2a2d27",
+            main: "#FFE1BD",
+            secondary: "#ce7d2d",
+            tertiary: "#ffb672",
           },
           text: {
             primary: "#000000",
@@ -202,13 +202,13 @@ function Dashboard(props) {
                   xs: "center",
                   sm: "left",
                 },
-                marginLeft: { xs: "30%", sm: "0px" },
+                marginLeft: { xs: "26%", sm: "0px" },
               }}
             >
               <span
                 style={{
                   backgroundColor: "#E6E6E6",
-                  padding: "0.2rem .5rem",
+                  padding: "0.2rem .8rem",
                   color: "black",
                   borderRadius: "10px",
                 }}

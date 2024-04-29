@@ -44,11 +44,11 @@ const Register = () => {
           // pb: 10,
         }}
       >
-        <div className="absolute left-10 top-5">
+        <div className="absolute left-4 top-4 lg:left-6">
           <Link to="/">
             <HomeIcon
               sx={{
-                fontSize: "30px",
+                fontSize: { sm: "2rem", md: "2.5rem", lg: "3rem" },
                 color: "white",
                 boxShadow: "2px 2px 10px black",
                 "&:hover": {
@@ -64,9 +64,10 @@ const Register = () => {
         <div
           style={{
             position: "absolute",
-            top: "1.4rem",
+            top: "1rem",
             right: "1rem",
             backgroundColor: "white",
+            borderRadius: "10px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

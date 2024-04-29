@@ -14,6 +14,7 @@ import background from "../assets/background.jpg";
 import Switch from "../components/Commons/Switch";
 import { useTranslation } from "react-i18next";
 import { translations } from "../locales/translations";
+import HomeIcon from "@mui/icons-material/Home";
 
 const Login = () => {
   const { login } = useAuthCall();
@@ -39,6 +40,22 @@ const Login = () => {
           p: 2,
         }}
       >
+        <div className="absolute left-4 top-4 lg:left-6">
+          <Link to="/">
+            <HomeIcon
+              sx={{
+                fontSize: { sm: "2rem", md: "2.5rem", lg: "3rem" },
+                color: "white",
+                boxShadow: "2px 2px 10px black",
+                "&:hover": {
+                  color: "#476A7E",
+                  cursor: "pointer",
+                  backgroundColor: "white",
+                },
+              }}
+            />
+          </Link>
+        </div>
         <AuthHeader />
         <div
           style={{
