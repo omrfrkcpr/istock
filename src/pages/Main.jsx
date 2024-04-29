@@ -37,7 +37,7 @@ const Main = () => {
         <Switch />
       </div>
       <div
-        className={`absolute top-[10%] right-[32%] md:top-[20%] md:right-[5%] w-[120px] md:w-[200px] lg:w-[300px] transition-opacity duration-[2s] ${
+        className={`absolute top-[10%] right-[30%] md:top-[20%] md:right-[5%] w-[120px] md:w-[200px] lg:w-[300px] transition-opacity duration-[2s] ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -51,7 +51,7 @@ const Main = () => {
         <img src={posImg} alt="pos" className="w-full h-auto" />
       </div>
       <div
-        className={`absolute md:ms-10 top-[35%] left-[1rem] md:mt-10 lg:top-[7%] xl:left-20 w-[fit-content] mx-auto space-y-4 transition-opacity duration-[2s] ${
+        className={`absolute md:ms-10 top-[35%] left-[1rem] md:mt-10 lg:top-[7%] xl:left-20 w-[95%] md:w-[fit-content] mx-auto space-y-4 transition-opacity duration-[2s] ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
