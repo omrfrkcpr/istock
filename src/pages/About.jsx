@@ -32,7 +32,7 @@ const About = () => {
         style={{
           position: "absolute",
           top: "1.4rem",
-          right: "1rem",
+          right: "1.4rem",
           backgroundColor: "white",
           display: "flex",
           alignItems: "center",

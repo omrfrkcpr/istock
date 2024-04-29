@@ -22,12 +22,12 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="min-h-[100vh] min-w-[100vw] h-[100%] w-[100%] bg-gradient-to-b from-orange-100 to-orange-300 relative">
+    <div className="min-h-[100vh] min-w-[100vw] h-[100%] w-[100%] bg-gradient-to-b from-orange-100 to-orange-300 relative overflow-hidden">
       <div
         style={{
           position: "absolute",
           top: "1.4rem",
-          right: "1rem",
+          right: "1.4rem",
           backgroundColor: "white",
           display: "flex",
           alignItems: "center",
@@ -37,7 +37,7 @@ const Main = () => {
         <Switch />
       </div>
       <div
-        className={`absolute top-[10%] right-[30%] md:top-[20%] md:right-[5%] w-[120px] md:w-[200px] lg:w-[300px] transition-opacity duration-[2s] ${
+        className={`absolute top-[10%] right-[30%] md:top-[20%] md:right-[5%] w-[120px] md:w-[200px] lg:w-[300px] xl:w-[350px] transition-opacity duration-[2s] ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
