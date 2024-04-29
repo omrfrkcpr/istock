@@ -58,7 +58,7 @@ const Main = () => {
         <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center md:text-left text-orange-950 pt-10">
           IStock
         </h1>
-        <p className="text-center md:text-left text-gray-600 text-md md:text-lg lg:text-xl xl:text-2xl md:max-w-[400px] lg:max-w-[600px] xl:max-w-[800px]">
+        <p className="text-center md:text-left text-gray-600 text-md md:text-lg lg:text-xl xl:text-2xl max-w-[95%] md:max-w-[400px] lg:max-w-[600px] xl:max-w-[800px]">
           {t(translations.mainPage.info)}
         </p>
         <div className="flex space-x-3 justify-center md:justify-start text-[0.8rem] items-center">
