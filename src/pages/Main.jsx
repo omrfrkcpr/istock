@@ -37,7 +37,7 @@ const Main = () => {
         <Switch />
       </div>
       <div
-        className={`absolute top-[10%] right-[32%] md:top-[7%] md:right-[5%] w-[120px] md:w-[200px] lg:w-[300px] transition-opacity duration-[2s] ${
+        className={`absolute top-[10%] right-[32%] md:top-[20%] md:right-[5%] w-[120px] md:w-[200px] lg:w-[300px] transition-opacity duration-[2s] ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -51,17 +51,17 @@ const Main = () => {
         <img src={posImg} alt="pos" className="w-full h-auto" />
       </div>
       <div
-        className={`absolute top-[35%] left-[1rem] md:mt-10 xl:top-[35%] xl:-left-20 w-[90%] mx-auto space-y-4 transition-opacity duration-[2s] ${
+        className={`absolute md:ms-10 top-[35%] left-[1rem] md:mt-10 lg:top-[7%] xl:left-20 w-[fit-content] mx-auto space-y-4 transition-opacity duration-[2s] ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
-        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-orange-950 pt-10">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center md:text-left text-orange-950 pt-10">
           IStock
         </h1>
-        <p className="text-center text-gray-600 text-md md:text-lg lg:text-xl xl:text-2xl">
+        <p className="text-center md:text-left text-gray-600 text-md md:text-lg lg:text-xl xl:text-2xl md:max-w-[400px] lg:max-w-[600px] xl:max-w-[800px]">
           {t(translations.mainPage.info)}
         </p>
-        <div className="flex space-x-3 justify-center text-[0.8rem] items-center">
+        <div className="flex space-x-3 justify-center md:justify-start text-[0.8rem] items-center">
           <p className="underline">Currently v1.0.2</p>
           <button className="relative group flex justify-center items-center gap-1 bg-purple-200 p-1 px-2 hover:bg-purple-300 rounded-lg">
             <ImportContactsIcon
@@ -100,7 +100,7 @@ const Main = () => {
             </a>
           </span>
         </div>
-        <div className="pt-5 flex gap-2 justify-center items-center">
+        <div className="pt-5 flex gap-2 justify-center md:justify-start items-center">
           <button
             className="bg-[#194072] hover:bg-[#486d9e] text-white py-[0.2rem] px-3 rounded-lg"
             onClick={() => navigate("/login")}
