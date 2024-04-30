@@ -1,10 +1,10 @@
 # IStock ©️
 
-💻
+💻 https://istock-app.vercel.app/
 
 ## Description
 
-iStock is a robust stock management application built using React, TailwindCSS, Material UI, Redux, and Redux Toolkit. It offers users a seamless experience in managing their inventory, allowing them to track purchase and sale activities, monitor profit and loss status, and perform various operations such as adding, editing, and updating products. The application supports multilingual functionality in Turkish and English and offers both dark and light mode themes for user customization.
+iStock is a robust stock management application built using React, TailwindCSS, Material UI, Redux, and Redux Toolkit. It offers users a seamless experience in managing their inventory, allowing them to track purchase and sale activities, monitor profit and loss status, and perform various operations such as adding, editing, and updating products. The application supports multilingual functionality in English, German and Turkish and offers both dark and light mode themes for user customization.
 
 ## Outcome
 
@@ -179,10 +179,10 @@ iStock is a robust stock management application built using React, TailwindCSS, 
 │    ┣ index.css
 │    ┗ main.jsx
 |
-├── istock-app.gif
 ├── .gitignore
 ├── frontend.env.local
 ├── index.html
+├── istock-app.gif
 ├── LICENSE
 ├── package.json
 ├── pnpm-lock.yaml
