@@ -8,6 +8,8 @@ iStock is a robust stock management application built using React, TailwindCSS, 
 
 ## Outcome
 
+![istock-app](https://github.com/omrfrkcpr/istock/assets/77440899/d9b20f51-2793-4c0b-a66f-1d5830765c21)
+
 ## Project Planning & Management
 
 **Epic User Story:** As a user of the iStock application, I want to efficiently manage my inventory by tracking purchase and sale activities, monitoring profit and loss status, and performing operations such as adding, editing, and updating products. The application should support multilingual functionality in English, German and Turkish and offer dark and light mode themes for user customization.
@@ -21,10 +23,10 @@ iStock is a robust stock management application built using React, TailwindCSS, 
 - 🥉 Users should also have the option to authenticate using Google.
 
   **_Task-1 =_** Create registration form UI using React components and Material UI for styling.<br>
-  **_Task-2 =_** Implement form validation for user input fields (e.g., email format, password strength).<br>
-  **_Task-3 =_** Integrate Firebase Authentication to handle user registration and Google authentication.<br>
+  **_Task-2 =_** Implement form validation for user input fields (e.g., email format, password strength) with using Formik and Yup.<br>
+  **_Task-3 =_** Integrate Backend Authentication to handle user registration.<br>
   **_Task-4 =_** Handle registration success and failure cases with appropriate error messages.<br>
-  **_Task-5 =_** Redirect users to the dashboard after successful registration.<br>
+  **_Task-5 =_** Redirect users to the login after successful registration.<br>
   **_Task-6 =_** Implement dark and light mode toggle functionality for user customization.
 
 2️⃣ **User Login:**
@@ -33,11 +35,10 @@ iStock is a robust stock management application built using React, TailwindCSS, 
 - 🥈 Users should be able to log in using their email and password or authenticate with Google.
 
   **_Task-1 =_** Design a login form UI using React components and Material UI for styling.<br>
-  **_Task-2 =_** Validate user input fields in the login form (e.g., email format).<br>
-  **_Task-3 =_** Implement Firebase Authentication for email and password login.<br>
+  **_Task-2 =_** Validate user input fields in the login form (e.g., email format) with using Formik and Yup.<br>
+  **_Task-3 =_** Implement Backend Authentication for email and password login.<br>
   **_Task-4 =_** Handle login success and failure cases with appropriate error messages.<br>
   **_Task-5 =_** Redirect users to the dashboard after successful login.<br>
-  **_Task-6 =_** Implement "Forgot Password" functionality with a link to reset the password.
 
 3️⃣ **Dashboard & Inventory Management:**
 
@@ -46,17 +47,17 @@ iStock is a robust stock management application built using React, TailwindCSS, 
 
   **_Task-1 =_** Create a dashboard UI displaying purchase and sale activities using React components and Material UI.<br>
   **_Task-2 =_** Implement CRUD operations for managing products using Redux and Redux Toolkit.<br>
-  **_Task-3 =_** Fetch and display product data from the backend API.<br>
+  **_Task-3 =_** Fetch and display all datas from the backend API.<br>
   **_Task-4 =_** Enable users to edit and update product details seamlessly.<br>
-  **_Task-5 =_** Implement multilingual support for the dashboard in Turkish and English.
+  **_Task-5 =_** Implement multilingual support for the dashboard in English, German and Turkish.
 
 4️⃣ **Multilingual Support:**
 
 - 🥇 As a user, I want to use the application in English, Turkish and German languages.
 - 🥈 Users should have the option to switch between languages seamlessly.
 
-  **_Task-1 =_** Implement localization support for the application using React Intl or a similar library.<br>
-  **_Task-2 =_** Create language switch functionality to allow users to toggle between Turkish and English.<br>
+  **_Task-1 =_** Implement localization support for the application using React i18n.<br>
+  **_Task-2 =_** Create language switch functionality to allow users to toggle between English, German and Turkish.<br>
   **_Task-3 =_** Translate all UI elements and content into Turkish, German and English languages.<br>
   **_Task-4 =_** Ensure consistent language switching across all application screens and components.
 
@@ -75,7 +76,7 @@ iStock is a robust stock management application built using React, TailwindCSS, 
 - 🥇 As a user, I expect the application to be responsive and work seamlessly on various devices and screen sizes.
 - 🥈 The UI should adapt to different screen sizes, ensuring a consistent and user-friendly experience.
 
-  **_Task-1 =_** Use TailwindCSS for styling components and layouts.<br>
+  **_Task-1 =_** Use TailwindCSS and MUI for styling components and layouts.<br>
   **_Task-2 =_** Design UI components to be responsive and adapt to different screen sizes.<br>
   **_Task-3 =_** Implement responsive navigation for smaller screens (e.g., mobile devices).<br>
   **_Task-4 =_** Ensure that text, images, and other UI elements are legible and accessible on all devices.
@@ -201,11 +202,13 @@ With this project, a stock management application will be developed using mainly
 
 - React (React-Router)
 
-- Redux & Redux Toolkit
+- Redux & Redux Toolkit & Redux Persist (Global State Management)
 
-- Material UI + TailwindCSS
+- Material UI + TailwindCSS (UI Kits)
 
-- Axios
+- Formik & Yup (For Form Validation)
+
+- Axios (Axios Instance)
 
 - Toastify (For User Messages)
 
