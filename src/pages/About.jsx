@@ -11,7 +11,7 @@ const About = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <section className="min-h-screen  bg-gradient-to-b from-orange-100 to-orange-300 flex flex-col justify-start items-center relative">
+    <section className="bg-gradient-to-b from-orange-100 to-orange-300 flex flex-col justify-start items-center relative overflow-hidden">
       <div className="absolute left-4 top-5 lg:left-6">
         <Link to="/">
           <HomeIcon
@@ -41,7 +41,7 @@ const About = () => {
       >
         <Switch />
       </div>
-      <div className="max-w-[90%] mx-auto mt-5">
+      <div className="w-[90%] mx-auto mt-5">
         <img src={logo} alt="" className="w-[100px] mx-auto" />
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 text-center mt-8">
           IStock
@@ -51,7 +51,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className="max-w-[90%] mx-auto">
+      <div className="w-[90%] mx-auto">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 underline">
           {t(translations.aboutPage.doc.title)}
         </h1>
@@ -60,7 +60,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className="max-w-[90%] mx-auto">
+      <div className="w-[90%] mx-auto">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 underline">
           {t(translations.aboutPage.overview.title)}
         </h1>
@@ -84,7 +84,7 @@ const About = () => {
         </ul>
       </div>
 
-      <div className="max-w-[90%] mx-auto">
+      <div className="w-[90%] mx-auto">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 underline">
           {t(translations.aboutPage.support.title)}
         </h1>
@@ -93,7 +93,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className="max-w-[90%] mx-auto">
+      <div className="w-[90%] mx-auto">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold mb-4 underline">
           {t(translations.aboutPage.help.title)}
         </h1>
@@ -110,7 +110,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className="max-w-[90%] mx-auto mt-5 mb-10">
+      <div className="w-[90%] mx-auto mt-5 mb-10">
         <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-center">
           {t(translations.aboutPage.footer)}
         </h3>
